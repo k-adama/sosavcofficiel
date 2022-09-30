@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unnecessary_new
 
 import 'package:flutter/material.dart';
+import 'package:sos_avc/listeInfos/info_maladie.dart';
 
 void main() {
   runApp(const MyInfos());
@@ -44,58 +45,105 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20.0),
-        child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            // ignore: prefer_const_literals_to_create_immutables
-
-            children: <Widget>[
-              //1e box
-              Expanded(
-                  child: SizedBox(
-                width: 150,
-                height: 200,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[100],
-                      side: BorderSide(
-                        width: 5.0,
-                        color: Colors.grey,
-                      )),
-                  child: Text(
-                    '''C'est quoi la maladie AVC ?''',
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-                  ),
-                  onPressed: () {},
-                ),
-              )),
-              //Créer espace entre les deux box
-              Container(width: 10, color: Colors.transparent),
-
-              //2e box
-              Expanded(
-                  child: SizedBox(
-                width: 150,
-                height: 200,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[100],
-                      side: BorderSide(
-                        width: 5.0,
-                        color: Colors.grey,
-                      )),
-                  child: Text(
-                    'SE CONNECTER',
-                  ),
-                  onPressed: () {},
-                ),
-              )),
-            ],
-          ),
+      // body: SingleChildScrollView(
+      // padding: const EdgeInsets.all(20.0),
+      body: Container(
+        padding: EdgeInsets.all(5.0),
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: <Widget>[
+            Card(
+              //Faire un border radius
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              color: Colors.amber,
+              margin: EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyMaladie(),
+                    ),
+                  );
+                },
+                // splashColor: Colors.green,
+                child: Center(
+                    child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: <Widget>[
+                    Icon(Icons.coronavirus, size: 70.0),
+                    Text("C'est quoi la maladie AVC ?"),
+                  ],
+                )),
+              ),
+            ),
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              color: Colors.amber,
+              margin: EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () {},
+                // splashColor: Colors.green,
+                child: Center(
+                    child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: <Widget>[
+                    Icon(Icons.dangerous, size: 70.0),
+                    Text("Les symptômes de l'AVC !"),
+                  ],
+                )),
+              ),
+            ),
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              color: Colors.amber,
+              margin: EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () {},
+                // splashColor: Colors.green,
+                child: Center(
+                    child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: <Widget>[
+                    Icon(Icons.health_and_safety, size: 70.0),
+                    Text("Les mesures de préventions"),
+                  ],
+                )),
+              ),
+            ),
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              color: Colors.amber,
+              margin: EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () {},
+                // splashColor: Colors.green,
+                child: Center(
+                    child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: <Widget>[
+                    Icon(Icons.person_off, size: 70.0),
+                    Text("Les personnes vulnérables"),
+                  ],
+                )),
+              ),
+            ),
+          ],
         ),
       ),
+      // ),
     );
   }
 }
