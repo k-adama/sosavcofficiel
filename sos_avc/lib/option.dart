@@ -73,56 +73,49 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 280,
             ),
             Container(
-                child: SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.limeAccent[700],
-                ),
-                child: Text(
-                  'PATIENT',
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyLogin(),
-                    ),
-                  );
-                },
-              ),
-            )),
+              child: ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.limeAccent[700],
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0)),
+                    minimumSize: Size(300, 60),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MyLogin(),
+                      ),
+                    );
+                  },
+                  icon: Icon(Icons.local_hospital),
+                  label: Text("PATIENT")),
+            ),
             SizedBox(
               height: 20,
             ),
             Container(
-                child: SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.yellowAccent[700],
-                ),
-                child: Text(
-                  'NON PATIENT',
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyAccueil(),
-                    ),
-                  );
-                },
-              ),
-            ))
+              child: ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.yellowAccent[700],
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0)),
+                    minimumSize: Size(300, 60),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MyAccueil(),
+                      ),
+                    );
+                  },
+                  icon: Icon(Icons.verified_user_sharp),
+                  label: Text("NON PATIENT")),
+            )
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _incrementCounter,
-      //   tooltip: 'Increment',
-      //   child: const Icon(Icons.add),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
