@@ -3,11 +3,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyMaladie());
+  runApp(const MyVulnerables());
 }
 
-class MyMaladie extends StatelessWidget {
-  const MyMaladie({super.key});
+class MyVulnerables extends StatelessWidget {
+  const MyVulnerables({super.key});
 
   // This widget is the root of your application.
   @override
@@ -42,11 +42,11 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               child: 
               new Text(
-                "Les accidents vasculaires cérébraux (AVC) sont caractérisés par la survenue brutale d'un déficit neurologique focal. Ils affectent environ 150000 patients par an, un nombre qui a tendance à augmenter en raison de l'augmentation de la population et de son vieillissement Environ un quart des AVC sont des récidives survenant chez des patients ayant unantécédent cérébrovasculaire. Les AVC peuvent survenir à tout âge, y compris dans l'enfance, mais, dans 75 %des cas, il affecte des patients âgés de plus de 65 ans. L'âge moyen de survenue d'un AVC est de 73 ans (70 ans pour les hommes et 76 ans pour les femmes)",
+                "L'âge, l'hypertension artérielle, le diabète, l'inactivité physique ou le tabac sont connus pour être des facteurs de risque d’un AVC, aussi bien pour les hommes que les femmes. Mais celles-ci présentent des facteurs de risques supplémentaires qui leur sont propres. Il y a tout d’abord leur vie hormonale, mais aussi le fait qu’elles vivent plus longtemps que les hommes (alors que le risque de survenue d’un AVC augmente avec l’âge). C’est ce qui ressort d’un article de l'Association américaine du cœur paru dans la revue scientifiqueStrokeen ce début d’année. Le Dr Sztajzel le confirme: «Les femmes sont toujours plus nombreuses à être atteintes d’un accident vasculaire cérébral. En 20 ans, le nombre de nouveaux cas a doublé et il a plus augmenté chez les femmes que chez les hommes».",
                textAlign: TextAlign.justify,
                style: new TextStyle(
                 color: Colors.black,
-                fontSize: 17.0
+                fontSize: 25.0
                ),
               ),
               

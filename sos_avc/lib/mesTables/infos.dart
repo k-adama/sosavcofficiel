@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unnecessary_new
-
 import 'package:flutter/material.dart';
 import 'package:sos_avc/listeInfos/info_maladie.dart';
+import 'package:sos_avc/listeInfos/info_mesures.dart';
+import 'package:sos_avc/listeInfos/info_symptomes.dart';
+import 'package:sos_avc/listeInfos/vulnerables.dart';
 
 void main() {
   runApp(const MyInfos());
@@ -10,7 +12,7 @@ void main() {
 class MyInfos extends StatelessWidget {
   const MyInfos({super.key});
 
-  // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,30 +36,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
-
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // body: SingleChildScrollView(
-      // padding: const EdgeInsets.all(20.0),
       body: Container(
         padding: EdgeInsets.all(5.0),
         child: GridView.count(
           crossAxisCount: 2,
           children: <Widget>[
             Card(
-              //Faire un border radius
+              
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              color: Colors.amber,
+              color: Colors.green,
               margin: EdgeInsets.all(8.0),
               child: InkWell(
                 onTap: () {
@@ -68,14 +60,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   );
                 },
-                // splashColor: Colors.green,
+                
                 child: Center(
                     child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  // ignore: prefer_const_literals_to_create_immutables
                   children: <Widget>[
                     Icon(Icons.coronavirus, size: 70.0),
-                    Text("C'est quoi la maladie AVC ?"),
+                    Text("Qu'est ce que l' AVC ?"),
                   ],
                 )),
               ),
@@ -84,15 +75,20 @@ class _MyHomePageState extends State<MyHomePage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              color: Colors.amber,
+              color: Colors.green,
               margin: EdgeInsets.all(8.0),
               child: InkWell(
-                onTap: () {},
-                // splashColor: Colors.green,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MySymptomes(),
+                    ),
+                  );
+                },
                 child: Center(
                     child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  // ignore: prefer_const_literals_to_create_immutables
                   children: <Widget>[
                     Icon(Icons.dangerous, size: 70.0),
                     Text("Les symptômes de l'AVC !"),
@@ -104,18 +100,26 @@ class _MyHomePageState extends State<MyHomePage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              color: Colors.amber,
+              color: Colors.green,
               margin: EdgeInsets.all(8.0),
               child: InkWell(
-                onTap: () {},
-                // splashColor: Colors.green,
+                onTap: () {
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyMesuresPreventives(),
+                    ),
+                  );
+                },
+              
                 child: Center(
                     child: Column(
+                  
                   mainAxisSize: MainAxisSize.min,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: <Widget>[
+                
+                  children: [
                     Icon(Icons.health_and_safety, size: 70.0),
-                    Text("Les mesures de préventions"),
+                    Text("Les mesures de preventions de l'avc"),
                   ],
                 )),
               ),
@@ -124,18 +128,25 @@ class _MyHomePageState extends State<MyHomePage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              color: Colors.amber,
+              color: Colors.green,
               margin: EdgeInsets.all(8.0),
               child: InkWell(
-                onTap: () {},
-                // splashColor: Colors.green,
+                onTap: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyVulnerables(),
+                    ),
+                  );
+                },
+                
                 child: Center(
                     child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  // ignore: prefer_const_literals_to_create_immutables
+                  
                   children: <Widget>[
                     Icon(Icons.person_off, size: 70.0),
-                    Text("Les personnes vulnérables"),
+                    Text("Les personnes vulnérables face à l'AVC"),
                   ],
                 )),
               ),
@@ -143,7 +154,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      // ),
     );
   }
 }
