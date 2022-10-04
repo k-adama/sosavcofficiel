@@ -1,7 +1,9 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
-
+// ignore_for_file: unused_import, prefer_const_constructors, avoid_unnecessary_containers
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:sos_avc/option.dart';
+// ignore: library_prefixes
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +36,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+<<<<<<< HEAD
 
+=======
+  //Debut variables
+  final call = Uri.parse('tel:112');
+  //Fin variables
+>>>>>>> 706d4a518ca9ffeb845edab2b1f6895d6fe752a7
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Image.asset(
               'images/log_avc.png',
-              height: 280,
-              width: 280,
+              height: 200,
+              width: 200,
             ),
             Container(
               child: Text("BIENVENUE SUR AVC ESPOIR..."),
@@ -60,27 +68,53 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 40,
             ),
             Container(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.limeAccent[700],
-                ),
-                child: Text(
-                  'Démarrer',
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyOption(),
-                    ),
-                  );
-                },
-              ),
+              child: ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.limeAccent[700],
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0)),
+                    minimumSize: Size(300, 60),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MyOption(),
+                      ),
+                    );
+                  },
+                  icon: Icon(Icons.start),
+                  label: Text("DEMARRER")),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            //Bouton d'appel au centre
+            Container(
+              child: ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.limeAccent[700],
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0)),
+                    minimumSize: Size(300, 60),
+                  ),
+                  onPressed: () async {
+                    if (await canLaunchUrl(call)) {
+                      launchUrl(call);
+                    } else {
+                      throw 'Impossible de joinde $call';
+                    }
+                  },
+                  icon: Icon(Icons.phone),
+                  label: Text("APPEL D'URGENCE")),
             )
           ],
         ),
       ),
+<<<<<<< HEAD
     
+=======
+>>>>>>> 706d4a518ca9ffeb845edab2b1f6895d6fe752a7
     );
   }
 }
