@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:sos_avc/accueil.dart';
+import 'package:sos_avc/accueil_non_patient.dart';
 import 'package:sos_avc/login.dart';
 import 'package:sos_avc/main.dart';
 
@@ -106,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MyAccueil(),
+                        builder: (context) => MyAccueilNonPatient(),
                       ),
                     );
                   },

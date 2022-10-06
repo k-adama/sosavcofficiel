@@ -45,8 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // body: SingleChildScrollView(
-      // padding: const EdgeInsets.all(20.0),
       body: Container(
         padding: EdgeInsets.all(5.0),
         child: GridView.count(
