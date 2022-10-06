@@ -40,6 +40,16 @@ dependencies:
   url_launcher: ^6.1.6
   http: ^0.13.5
   fluttertoast: ^8.0.9
+  intl: ^0.17.0
+  # dio: ^4.0.6
+  # file_picker: ^5.2.0+1
+  # path: ^1.8.2
+  # camera: ^0.10.0+3
+  # path_provider: ^2.0.11
+  image_picker: ^0.8.5+3
+  
+  
+  
   
 
 dev_dependencies:
