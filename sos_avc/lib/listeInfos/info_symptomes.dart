@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unnecessary_new
 
 import 'package:flutter/material.dart';
+import 'package:sos_avc/mesTables/infos.dart';
 
 void main() {
   runApp(const MySymptomes());
@@ -53,6 +54,20 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
+      ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.arrow_back),
+        backgroundColor: Colors.green,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MyInfos(),
+            ),
+          );
+        },
       ),
     );
   }
