@@ -1,14 +1,15 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unnecessary_new, sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:sos_avc/mesTables/actualite.dart';
 import 'package:sos_avc/mesTables/infos.dart';
 
 void main() {
-  runApp(const MyMesuresPreventives());
+  runApp(const MyInfoActualite());
 }
 
-class MyMesuresPreventives extends StatelessWidget {
-  const MyMesuresPreventives({super.key});
+class MyInfoActualite extends StatelessWidget {
+  const MyInfoActualite({super.key});
 
   // This widget is the root of your application.
   @override
@@ -42,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               child: new Text(
-                "Elle repose sur la prise en charge des facteurs de risque d'AVC.• HTA : principal facteur de risque des AVC, ischémiques ou hémorragiques :augmentation du risque relatif (RR) de 4 environ ; plus de la moitié des AVC surviennent dans un contexte d'HTA chronique.  • Tabac : RR = 2. Important facteur de risque d'athérosclérose carotidienne.• Hypercholestérolémie : RR = 1,5. Ce facteur de risque majeur de l'infarctus du myocarde est un facteur de risque plus accessoire des infarctus cérébraux• ",
+                "Comme chaque année, à l’occasion de la journée Mondial de lutte contre les AVC, l’ONG AVC ESPOIR lance des démarches pour l’organisation de la 3e édition:<<AVC:Informer pour prévenir>>.En côte d’ivoire avec en moyenne 35% des hospitalisations, les AVC représentent aujourd’hui le 1er mootif d’admission en mèdecine intern. Face à cet tableau sombre, l’ONG AVC ESpoir a lancé ses activité avec pour principale ",
                 textAlign: TextAlign.justify,
                 style: new TextStyle(color: Colors.black, fontSize: 28.0),
               ),
@@ -58,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => MyInfos(),
+              builder: (context) => MyActualite(),
             ),
           );
         },

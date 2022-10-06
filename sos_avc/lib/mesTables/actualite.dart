@@ -1,6 +1,9 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unused_import
+
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:sos_avc/listeInfos/info_actualite.dart';
 
 void main() {
   runApp(const MyActualite());
@@ -33,43 +36,38 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
+//debut variables
+  final List<Map<String, dynamic>> _items = List.generate(
+      10,
+      (index) => {
+            "id": index,
+            "title": "Journée Nationale de lutte contre l'AVC",
+            // "subtitle": "Subtitle $index"
+          });
 
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
+//Fin variables
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            // ignore: prefer_const_literals_to_create_immutables
-            children: <Widget>[
-              Image.asset(
-                'images/log_avc.png',
-                height: 120,
-                width: 120,
-              ),
-              Container(
-                child: Text('BIENVENUE SUR ACTUALITES...'),
-              ),
-              SizedBox(
-                height: 40,
-              ),
-            ],
-          ),
-        ),
-      ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _incrementCounter,
-      //   tooltip: 'Increment',
-      //   child: const Icon(Icons.add),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        body: ListView(
+            children: ListTile.divideTiles(
+                color: Colors.deepPurple,
+                tiles: _items.map((item) => ListTile(
+                    leading: CircleAvatar(
+                      radius: 25,
+                      backgroundColor: Colors.amber,
+                      backgroundImage: AssetImage('images/log_avc.png'),
+                    ),
+                    title: Text(item['title']),
+                    // subtitle: Text(item['subtitle']),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MyInfoActualite(),
+                        ),
+                      );
+                    }))).toList()));
   }
 }

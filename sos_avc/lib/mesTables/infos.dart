@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unnecessary_new
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unnecessary_new, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:sos_avc/listeInfos/info_maladie.dart';
 import 'package:sos_avc/listeInfos/info_mesures.dart';
@@ -12,7 +12,6 @@ void main() {
 class MyInfos extends StatelessWidget {
   const MyInfos({super.key});
 
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisCount: 2,
           children: <Widget>[
             Card(
-              
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -60,7 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   );
                 },
-                
                 child: Center(
                     child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -104,19 +101,16 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.all(8.0),
               child: InkWell(
                 onTap: () {
-                   Navigator.push(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => MyMesuresPreventives(),
                     ),
                   );
                 },
-              
                 child: Center(
                     child: Column(
-                  
                   mainAxisSize: MainAxisSize.min,
-                
                   children: [
                     Icon(Icons.health_and_safety, size: 70.0),
                     Text("Les mesures de preventions de l'avc"),
@@ -132,18 +126,16 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.all(8.0),
               child: InkWell(
                 onTap: () {
-                    Navigator.push(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => MyVulnerables(),
                     ),
                   );
                 },
-                
                 child: Center(
                     child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  
                   children: <Widget>[
                     Icon(Icons.person_off, size: 70.0),
                     Text("Les personnes vulnérables face à l'AVC"),
