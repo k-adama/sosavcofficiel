@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: new Text(
                 "Les signes et les symptômes d’un AVC sont les mêmes pour les hommes et les femmes.Les symptômes peuvent survenir soudainement ou peuvent apparaître et disparaître pendant quelques jours. Les principaux signes avant-coureurs et symptômes d’un AVC comprennent :une faiblesse d’un seul côté de votre corps un engourdissement ou un fourmillement au niveau du visage dans les bras ou dans les jambes.",
                 textAlign: TextAlign.justify,
-                style: new TextStyle(color: Colors.black, fontSize: 25.0),
+                style: new TextStyle(color: Colors.black, fontSize: 30.0),
               ),
             )
           ],

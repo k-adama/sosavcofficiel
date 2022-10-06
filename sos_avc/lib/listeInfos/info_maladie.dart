@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: new Text(
                 "Les accidents vasculaires cérébraux (AVC) sont caractérisés par la survenue brutale d'un déficit neurologique focal. Ils affectent environ 150000 patients par an, un nombre qui a tendance à augmenter en raison de l'augmentation de la population et de son vieillissement Environ un quart des AVC sont des récidives survenant chez des patients ayant unantécédent cérébrovasculaire. Les AVC peuvent survenir à tout âge, y compris dans l'enfance, mais, dans 75 %des cas, il affecte des patients âgés de plus de 65 ans. L'âge moyen de survenue d'un AVC est de 73 ans (70 ans pour les hommes et 76 ans pour les femmes)",
                 textAlign: TextAlign.justify,
-                style: new TextStyle(color: Colors.black, fontSize: 17.0),
+                style: new TextStyle(color: Colors.black, fontSize: 25.0),
               ),
             )
           ],

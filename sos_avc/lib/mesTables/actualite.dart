@@ -3,6 +3,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:sos_avc/listeInfos/info_actualite.dart';
 
 void main() {
   runApp(const MyActualite());
@@ -60,6 +61,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     title: Text(item['title']),
                     // subtitle: Text(item['subtitle']),
-                    onTap: () {}))).toList()));
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MyInfoActualite(),
+                        ),
+                      );
+                    }))).toList()));
   }
 }
