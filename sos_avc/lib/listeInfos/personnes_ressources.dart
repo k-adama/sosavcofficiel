@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unnecessary_new
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unnecessary_new, sort_child_properties_last
 
 import 'package:flutter/material.dart';
 import 'package:sos_avc/mesTables/urgence.dart';

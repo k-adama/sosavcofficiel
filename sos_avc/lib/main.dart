@@ -36,9 +36,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   //Debut variables
   final call = Uri.parse('tel:112');
   //Fin variables
+
 
   @override
   Widget build(BuildContext context) {
