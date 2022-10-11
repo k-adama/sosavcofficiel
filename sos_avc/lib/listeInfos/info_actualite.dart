@@ -1,8 +1,10 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unnecessary_new, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unnecessary_new, sort_child_properties_last, unused_import
 
 import 'package:flutter/material.dart';
-import 'package:sos_avc/mesTables/actualite.dart';
-import 'package:sos_avc/mesTables/infos.dart';
+
+import '../mesTables/infos.dart';
+
+import '../mesTables/actualite.dart';
 
 void main() {
   runApp(const MyInfoActualite());
