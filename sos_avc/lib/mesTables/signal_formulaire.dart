@@ -12,6 +12,12 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 //camera package
 import 'package:image_picker/image_picker.dart';
+//unique ID package
+import 'package:uuid/uuid.dart';
+//shared_preferences
+import 'package:shared_preferences/shared_preferences.dart';
+//focus detector
+import 'package:focus_detector/focus_detector.dart';
 
 Future<void> main() async {
   
@@ -26,22 +32,22 @@ class MySignalForm extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'sos avc',
-      theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-      ),
-      home: const MyHomePage(title: 'SOS AVC'),
-    );
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'sos avc',
+        theme: ThemeData(
+          primarySwatch: Colors.lightGreen,
+        ),
+        home: const MyHomePage(title: 'SOS AVC'),
+      );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-  
 
   final String title;
+  
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -50,12 +56,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   
   //variables
- 
+  var idMalade;
+  var idCrise; 
 
   //text editing controller for text field
   final _formKey = GlobalKey<FormState>();
   //la liste des villes
-  final List<String> villes = <String>[' ','Abidjan','Bouaké','Yamoussoukro','Daloa','San Pedro'];
+  List<String> villes = <String>[' ','Abidjan','Bouaké','Yamoussoukro','Daloa','San Pedro'];
 
   String? dropdownValue = '';
   final dateinput = TextEditingController(); 
@@ -64,132 +71,146 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //Fin variables
 
+//Get id_malade
+Future<void>  requiredId() async {
+    final prefs =  await SharedPreferences.getInstance(); //sharedpreference instence
+    var uuid = Uuid();
+  //get ID MALADE
+  setState(() {
+    idMalade = prefs.getString('idMalade');
+  });
+  //get ID CRISE
+  setState(() {
+    idCrise = uuid.v1(); 
+  });
+  print(idMalade);
+  print(idCrise);
+}
+
+  //debut fonction
+  Future saveCrise(BuildContext cont) async {
+    // ignore: unused_local_variable
+    if (dateinput.text == "") {
+      Fluttertoast.showToast(
+          msg: "Veuillez renseigner la date !",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.SNACKBAR,
+          fontSize: 16.0);
+    } else {
+      final response = await http.post(
+          Uri.parse("http://s-p4.com/kindo/traitement/insertCrise.php"),
+          body: {
+              "dateCrise": dateinput.text,
+              "medicament": medicament.text,
+              "action": action.text,
+              "lieuCrise": dropdownValue,
+          });
+      var data = json.decode(response.body);
+      if (data == "accepte") {
+        Fluttertoast.showToast(
+            msg: "enrégistrement effectué",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.SNACKBAR,
+            fontSize: 16.0);
+      } else {
+        Fluttertoast.showToast(
+            msg: "erreur d'enregistrement, réesayer!",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.SNACKBAR,
+            fontSize: 16.0);
+      }
+    }
+  }
+  //fin fonction
+
+
+
+
 //Vider champs après clique
   void Clean() {
     action.clear();
     medicament.clear();
-    dateinput.clear(); 
-    _images.clear();
+    dateinput.clear();
+    Images.clear(); 
     setState(() {
-      dropdownValue = '';
+      dropdownValue = ' ';
     });
   }
-  //fin
 
+List files = [];
   //debut fonction
-  Future saveCrise() async {
-    //print(code);
-    print(dateinput.text);
-    print(medicament.text);
-    print(action.text);
-    print(dropdownValue);
-    // ignore: unused_local_variable
-    // if(action.text == "") {
-     
-    //   // final response = await http.post(Uri.parse('https://avcespoir.simplonien-da.net/mobile/save_crise.php'),
-    //   //   body: {
-    //   //     "date": dateinput.text,
-    //   //     "mediacament":medicament.text,
-    //   //     "action":action.text,
-    //   //     "lieu":dropdownValue,
-    //   //   });
+  Future<bool> uploadImages(List imgs) async {
+    
+    
+    print(imgs);
+  
+    print(imgs.length);
+    if(imgs.length != 0){
       
-    //   // if(response.statusCode == 200){
-    //   //   // ignore: use_build_context_synchronously
-    //   //   var data = json.decode(response.body);
-    //   //   if(data['code'] == 200){
-    //   //      print(data['msg']);
-    //   //       Fluttertoast.showToast(
-    //   //       msg: data['msg'],
-    //   //       toastLength: Toast.LENGTH_SHORT,
-    //   //       gravity: ToastGravity.SNACKBAR,
-    //   //       fontSize: 16.0);
-          
-    //   //     Clean();
-    //   //   }else {
-    //   //     Fluttertoast.showToast(
-    //   //       msg: data['msg'],
-    //   //       toastLength: Toast.LENGTH_SHORT,
-    //   //       gravity: ToastGravity.SNACKBAR,
-    //   //       fontSize: 16.0);
-    //   //   }
-       
-    //   } else {
-    //     print(response);
-    //     Clean();
-    //     Fluttertoast.showToast(
-    //         msg: "erreur d'enrégistrement",
-    //         toastLength: Toast.LENGTH_SHORT,
-    //         gravity: ToastGravity.SNACKBAR,
-    //         fontSize: 16.0);
-    //   }
-    // }
+      var uri = "https://avcespoir.simplonien-da.net/mobile/insert_img.php";
       
-        Fluttertoast.showToast(
-            msg: "Enrégistrement effectué",
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.SNACKBAR,
-            fontSize: 16.0);
-            Clean();
+      var request = http.MultipartRequest('POST', Uri.parse(uri));
+      var nbr =0;
+      for (int i = 0; i < imgs.length; i++) {
+        
+        nbr++;
+        var pic = await http.MultipartFile.fromPath("image",imgs[i]);
+        request.files.add(pic);
+        request.fields['id_malade'] = idMalade;
+        request.fields['id_crise'] = idCrise;
+
+        await request.send().then((result) {
+  
+          http.Response.fromStream(result).then((response) {
+  
+            var message = jsonDecode(response.body);
+  
+            // show snackbar if input data successfully
+              Fluttertoast.showToast(
+                msg: message['message']+"$nbr",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.SNACKBAR,
+                fontSize: 16.0
+              );
+              Clean();
+              return true;
+          });
+  
+        }).catchError((e) {
+          print(e);
+  
+        });
+        
+      }
+
+    }
+    return false;
       
   }
-  // Future datepick(BuildContext cont) async {
-    
-  // }
 
-  XFile? image;
-
-  List _images = [];
+  List<String> Images = [];
 
   final ImagePicker picker = ImagePicker();
 
   //we can upload image from camera or from gallery based on parameter
   Future getImage(ImageSource media) async {
     var img = await picker.pickImage(source: media);
-    
-        var uri = "https://avcespoir.simplonien-da.net/mobile/insert_img.php";
-    
-        var request = http.MultipartRequest('POST', Uri.parse(uri));
-    
-        if(img != null){
-    
-          var pic = await http.MultipartFile.fromPath("image", img.path);
-    
-          request.files.add(pic);
-    
-          await request.send().then((result) {
-    
-            http.Response.fromStream(result).then((response) {
-    
-              var message = jsonDecode(response.body);
-    
-              // show snackbar if input data successfully
-              final snackBar = SnackBar(content: Text(message['message']));
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    
-              //get new list images 
-              getImageServer();
-            });
-    
-          }).catchError((e) {
-    
-            print(e);
-    
-          });
-        }
+      setState(() {
+        Images.add(img!.path); 
+      });
   }
 
-  Future getImageServer() async {
+  Future getVilles() async {
       try{
   
-        final response = await http.get(Uri.parse('https://avcespoir.simplonien-da.net/mobile/get_img.php'));
+        final response = await http.get(Uri.parse('https://avcespoir.simplonien-da.net/mobile/get_ville.php?idMalade='+idMalade+'&idCrise='+idCrise));
   
         if(response.statusCode == 200){
           final data = jsonDecode(response.body);
   
           setState(() {
-            _images = data;
-            print(_images);
+            villes = data;
+            print(villes);
           });
         }
   
@@ -251,7 +272,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     dateinput.text=""; //set the initial value of text field
-    getImageServer();
+    requiredId();
+    getVilles();
     super.initState();
   }
 
@@ -259,6 +281,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
+        scrollDirection: Axis.vertical,
         children:[ Form(
           key: _formKey,
           child: Container(
@@ -370,9 +393,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         
                         TextButton.icon(                           
                           onPressed:  () {
-                            myAlert();
-                            print(_images);
-                                                      
+                            myAlert();                                                                                  
                           },
                           label: Text(
                             'prendre la photo des médicaments ou ordonnances',
@@ -394,20 +415,37 @@ class _MyHomePageState extends State<MyHomePage> {
                       ]
                     ),
                   ),
+
                 
-                  Row(
-                    
-                    children: [
-                      for(var i=0; i<_images.length; i++)
-                      Image(
-                        image: NetworkImage('https://avcespoir.simplonien-da.net/mobile/images/'+_images[i]),
-                        //fit: BoxFit.cover,
-                        height:100,
-                        width:100,
-                      ),
-                    ],
-                  ),
-             
+                  
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child:Row(
+                    children: Images.map((img){
+                        return Column(
+                          children: [
+                            Image.file(
+                            //to show image, you type like this.
+                            File(img),
+                            fit: BoxFit.contain,
+                            width: 100,//MediaQuery.of(context).size.width,
+                            height: 100,
+                            ),
+                            IconButton(
+                            // ignore: prefer_const_constructors
+                            icon: Icon(Icons.close_sharp,
+                              color: Color.fromARGB(255, 176, 6, 6), size: 25.0),
+                            onPressed: () {
+                              print('deleted');
+                              setState(() {
+                                Images.remove(img);
+                              });
+                              
+                            }),
+                          ],
+                        );
+                    }).toList(),
+                  ),),
                   Container(
                     alignment: Alignment.center,
                     margin: EdgeInsets.only(top: 25),
@@ -424,12 +462,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           'Enrégistrer',
                         ),
                         onPressed: () {
+                          uploadImages(Images);    
                             if (_formKey.currentState!.validate()) {
-                              //saveCrise();     
-                              Clean();                       
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('enrégistrement effectué')),
-                              );
+                              
+                              //Clean();                       
+                              // ScaffoldMessenger.of(context).showSnackBar(
+                              //   const SnackBar(content: Text('enrégistrement effectué')),
+                              // );
                             }
                           
                           //Clean();
@@ -448,5 +487,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
