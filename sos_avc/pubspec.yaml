@@ -50,6 +50,8 @@ dependencies:
   uuid: ^3.0.6
   shared_preferences: ^2.0.15
   focus_detector: ^2.0.1
+  connectivity_plus: ^2.3.9
+ 
   
   
   

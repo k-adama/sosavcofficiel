@@ -68,6 +68,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           builder: (context) => MyInfoActualite(),
                         ),
                       );
-                    }))).toList()));
+                    }))).toList()
+                    )
+    );
   }
 }
