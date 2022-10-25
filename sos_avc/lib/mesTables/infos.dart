@@ -12,6 +12,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
+import '../listeInfos/info_maladie.dart';
+
 void main() {
   runApp(const MyInfos());
 }

@@ -4,6 +4,7 @@ import 'login.dart';
 import 'mesTables/actualite.dart';
 import 'mesTables/contact.dart';
 import 'mesTables/infos.dart';
+import 'mesTables/signal_cas.dart';
 import 'mesTables/urgence.dart';
 
 void main() {
