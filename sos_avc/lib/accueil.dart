@@ -1,12 +1,12 @@
 // ignore_for_file: unused_import, prefer_const_constructors, duplicate_ignore, unnecessary_new, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:sos_avc/mesTables/actualite.dart';
-import 'package:sos_avc/mesTables/contact.dart';
-import 'package:sos_avc/mesTables/infos.dart';
-import 'package:sos_avc/mesTables/signal_cas.dart';
-import 'package:sos_avc/mesTables/urgence.dart';
-import 'package:sos_avc/option.dart';
+
+import 'mesTables/actualite.dart';
+import 'mesTables/contact.dart';
+import 'mesTables/infos.dart';
+import 'mesTables/signal_cas.dart';
+import 'mesTables/urgence.dart';
 
 void main() {
   runApp(const MyAccueil());
@@ -46,6 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: 40,
           automaticallyImplyLeading: false,
           actions: [
             IconButton(

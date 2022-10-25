@@ -19,21 +19,21 @@ class MySymptomes extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
       ),
-      home: const MyHomePage(title: 'SOS AVC'),
+      home: const MyMaladieSheet(title: 'SOS AVC'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyMaladieSheet extends StatefulWidget {
+  const MyMaladieSheet({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyMaladieSheet> createState() => _MyMaladieSheetState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyMaladieSheetState extends State<MyMaladieSheet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,19 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.arrow_back),
-        backgroundColor: Colors.green,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => MyInfos(),
-            ),
-          );
-        },
       ),
     );
   }

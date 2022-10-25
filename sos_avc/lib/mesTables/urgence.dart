@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unnecessary_new
 
 import 'package:flutter/material.dart';
-import 'package:sos_avc/listeInfos/personnes_ressources.dart';
 
 import '../listeInfos/liste_hopitaux.dart';
+import '../listeInfos/personnes_ressources.dart';
 
 void main() {
   runApp(const MyUrgence());
@@ -18,9 +18,6 @@ class MyUrgence extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'sos avc',
-      theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-      ),
       home: const MyHomePage(title: 'SOS AVC'),
     );
   }
@@ -36,6 +33,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void _showModalBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+        top: Radius.circular(30),
+      )),
+      builder: (context) => DraggableScrollableSheet(
+          initialChildSize: 0.9,
+          maxChildSize: 0.9,
+          minChildSize: 0.32,
+          expand: false,
+          builder: (context, scrollController) {
+            return SingleChildScrollView(
+              controller: scrollController,
+              child: MyListHospital(
+                title: '',
+              ),
+            );
+          }),
+    );
+  }
   // int _counter = 0;
 
   // void _incrementCounter() {
@@ -55,7 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
           height: 50,
         ),
         SizedBox(
-          height: 120,
+          height: MediaQuery.of(context).size.height * 0.13,
+          width: MediaQuery.of(context).size.width * 0.95,
           child: Card(
             semanticContainer: true,
             margin: EdgeInsets.all(10),
@@ -67,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
+                //BLOC HOPITAL A PROXIMITE
                 new ListTile(
                   leading:
                       Icon(Icons.local_hospital, color: Colors.cyan, size: 45),
@@ -76,21 +98,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   subtitle: Text(
                       'Consulter la liste des hôpitaux afin de vous prendre en charge'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MyListHopital(),
-                      ),
-                    );
-                  },
+                  onTap: () => _showModalBottomSheet(context),
+                  //BLOC HOPITAL A PROXIMITE
                 ),
               ],
             ),
           ),
         ),
+
+        //BLOC PERSONNES RESSOURCES
         SizedBox(
-          height: 120,
+          height: MediaQuery.of(context).size.height * 0.13,
+          width: MediaQuery.of(context).size.width * 0.95,
           child: Card(
             semanticContainer: true,
             margin: EdgeInsets.all(10),
@@ -101,7 +120,6 @@ class _MyHomePageState extends State<MyHomePage> {
             shadowColor: Colors.green[100],
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              // ignore: prefer_const_literals_to_create_immutables
               children: <Widget>[
                 new ListTile(
                   leading: Icon(Icons.person, color: Colors.cyan, size: 45),
@@ -112,11 +130,26 @@ class _MyHomePageState extends State<MyHomePage> {
                   subtitle: Text(
                       "Ici, la liste de personnes à contacter pour avoir plus d'informations sur vos préoccupations"),
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MyPersonneRessource(),
-                      ),
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(30),
+                      )),
+                      builder: (context) => DraggableScrollableSheet(
+                          initialChildSize: 0.9,
+                          maxChildSize: 0.9,
+                          minChildSize: 0.32,
+                          expand: false,
+                          builder: (context, scrollController) {
+                            return SingleChildScrollView(
+                              controller: scrollController,
+                              child: MyPersRessources(
+                                title: '',
+                              ),
+                            );
+                          }),
                     );
                   },
                 ),
