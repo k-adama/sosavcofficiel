@@ -1,12 +1,10 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unused_import, unnecessary_new, unused_field, prefer_final_fields, unnecessary_const
 import 'package:flutter/material.dart';
-import 'package:sos_avc/login.dart';
-import 'package:sos_avc/mesTables/actualite.dart';
-import 'package:sos_avc/mesTables/contact.dart';
-import 'package:sos_avc/mesTables/infos.dart';
-import 'package:sos_avc/mesTables/signal_cas.dart';
-import 'package:sos_avc/mesTables/urgence.dart';
-import 'package:sos_avc/option.dart';
+import 'login.dart';
+import 'mesTables/actualite.dart';
+import 'mesTables/contact.dart';
+import 'mesTables/infos.dart';
+import 'mesTables/urgence.dart';
 
 void main() {
   runApp(const MyAccueilNonPatient());
@@ -15,7 +13,6 @@ void main() {
 class MyAccueilNonPatient extends StatelessWidget {
   const MyAccueilNonPatient({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,21 +35,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // TabController _tabController = TabController(length: 4, vsync: this);
-  // int _counter = 0;
-
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: 40,
           automaticallyImplyLeading: false,
           actions: [
             IconButton(
@@ -67,8 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           //Création du menu dans le appbar
           bottom: TabBar(
-            // controller: _tabController,
-            //Permet de faire scroller le menu
             isScrollable: true,
             tabs: const <Widget>[
               Tab(
@@ -82,9 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         body: new TabBarView(
-          // controller: _tabController,
-          // ignore: prefer_const_literals_to_create_immutables
-          children: <Widget>[
+          children: const <Widget>[
             MyActualite(),
             MyInfos(),
             MyUrgence(),
