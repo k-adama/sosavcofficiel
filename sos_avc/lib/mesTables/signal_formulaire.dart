@@ -187,7 +187,7 @@ Future checkInternet() async {
   Future uploadImages() async {
 
     if(Images.length != 0){
-       setState(() {
+        setState(() {
             chargement = "true";
             msg = "Téléchargement des images";
         });
@@ -361,9 +361,9 @@ Future checkInternet() async {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
+      body: SingleChildScrollView(
         //scrollDirection: Axis.vertical,
-        children:[ Form(
+        child: Form(
           key: _formKey,
           child: Container(
             padding: EdgeInsets.all(15.0),
@@ -584,7 +584,7 @@ Future checkInternet() async {
                 ],
               ),
           ),
-        ),],
+        ),
       ),
     
     );

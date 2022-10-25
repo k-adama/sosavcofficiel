@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../mesTables/infos.dart';
+import '../mesTables/historic.dart';
 
 import '../mesTables/actualite.dart';
 
