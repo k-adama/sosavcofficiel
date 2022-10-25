@@ -18,10 +18,10 @@ class MySignal extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      // title: 'sos avc',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.lightGreen,
-      // ),
+      title: 'sos avc',
+      theme: ThemeData(
+        primarySwatch: Colors.lightGreen,
+      ),
       home: const MyHomePage(title: 'SOS AVC'),
     );
   }
