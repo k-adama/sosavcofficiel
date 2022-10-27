@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sos_avc/accueil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'bienvenu.dart';
 import 'option.dart';
@@ -36,7 +38,27 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   //Debut variables
   final call = Uri.parse('tel:112');
+  var idMalade;
   //Fin variables
+
+  //Debut function
+  Future<void>  requiredId() async {
+      final prefs =  await SharedPreferences.getInstance(); //sharedpreference instence
+      
+    //get code MALADE
+    setState(() {
+      idMalade = prefs.getString('idMalade');
+      print(idMalade);
+    });
+  }
+  //Fin function
+  
+  @override
+  void initState() {
+    requiredId();
+    super.initState();
+  }
+   
 
   @override
   Widget build(BuildContext context) {
@@ -70,12 +92,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     minimumSize: Size(300, 60),
                   ),
                   onPressed: () {
+                    
+                    idMalade == null ? 
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => MyOption(),
                       ),
+                    )
+                    :
+                    
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MyAccueil(),
+                      ),
                     );
+
                   },
                   icon: Icon(Icons.start),
                   label: Text("DEMARRER")),

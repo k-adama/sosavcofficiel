@@ -49,7 +49,8 @@ class _MyHomePageState extends State<MyHomePage> {
 var idMalade;
 bool accessInternet = false;
 late List<String> dateCrises = [];
-late List<String> actionCrises = [];
+late List<String> typeCrises = [];
+late List<String> traitementCrises = [];
 
 
 //Function start
@@ -75,41 +76,73 @@ late List<String> actionCrises = [];
   Future getCrise() async {
         final prefs =  await SharedPreferences.getInstance();
         var isCrisefetch = prefs.getString('isCrisefetch');
+        print(isCrisefetch);
+        print('accessInternet');
+        // && (isCrisefetch == "true" || isCrisefetch == null)
         
-        
-      if(accessInternet == true && (isCrisefetch == "false" || isCrisefetch == null)) {
-       
+      if(accessInternet == true) {
+      
         try{
   
-          final response = await http.get(Uri.parse('https://avcespoir.simplonien-da.net/mobile/get_crise.php?idMalade=sqsdqds'));
+          final response = await http.get(Uri.parse('https://avcespoir.simplonien-da.net/mobile/get_crise.php?idMalade='+idMalade));
     
           if(response.statusCode == 200){
             final data = jsonDecode(response.body);
             late List<String> fetchCriseDate = [];
-            late List<String> fetchCriseAction = [];
+            late List<String> fetchTypeCrise = [];
+            late List<String> fetchTraitementCrise = [];
+            print(data);
+            print(isCrisefetch);
             for(var i=0;i<data['date'].length;i++){
               fetchCriseDate.add(data['date'][i]);
-              fetchCriseAction.add(data['action'][i]);
+              fetchTypeCrise.add(data['type'][i]);
+              fetchTraitementCrise.add(data['traitement'][i]);
             }
             
             setState(() {
               prefs.setStringList('dateCrises',fetchCriseDate);
-              prefs.setStringList('actionCrises',fetchCriseAction);
+              prefs.setStringList('typeCrises',fetchTypeCrise);
+              prefs.setStringList('traitement',fetchTraitementCrise);
+
               dateCrises = prefs.getStringList('dateCrises')!;
-              actionCrises = prefs.getStringList('actionCrises')!;
-              prefs.setString('isCrisefetch',"true");
-             
+              typeCrises = prefs.getStringList('typeCrises')!;
+              traitementCrises = prefs.getStringList('traitement')!;
+
+              prefs.setString('isCrisefetch',"true");               
             });
-           
+          
+          } else {
+            Fluttertoast.showToast( 
+              msg: 'impossible d\'obtenir les enrégistrements récents',
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.SNACKBAR,
+              fontSize: 16.0
+            );
+            setState(() {              
+              dateCrises = prefs.getStringList('dateCrises')!;
+              typeCrises = prefs.getStringList('typeCrises')!;
+              traitementCrises = prefs.getStringList('traitement')!;
+            });
           }
         }catch(e){
-        
+          Fluttertoast.showToast( 
+            msg: 'impossible de se connecter au serveur',
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.SNACKBAR,
+            fontSize: 16.0
+          );
+            setState(() {
+              dateCrises = prefs.getStringList('dateCrises')!;
+              typeCrises = prefs.getStringList('typeCrises')!;
+              traitementCrises = prefs.getStringList('traitement')!;
+            });
         }
       } else {
         
         setState(() {
               dateCrises = prefs.getStringList('dateCrises')!;
-              actionCrises = prefs.getStringList('actionCrises')!;
+              typeCrises = prefs.getStringList('typeCrises')!;
+              traitementCrises = prefs.getStringList('traitement')!;
             });
             
       }
@@ -120,6 +153,7 @@ late List<String> actionCrises = [];
     //get ID MALADE
     setState(() {
       idMalade = prefs.getString('idMalade');
+    
     });
   }
   @override
@@ -134,8 +168,12 @@ late List<String> actionCrises = [];
     return Scaffold(
       body: ListView(
         children: [
+          dateCrises.length == 0 ? 
+          Text('affichage des enrégistrement effectué',textAlign: TextAlign.center,)
+          : 
           Column(
             children: [
+              
               for(var i=0;i<dateCrises.length;i++)
               Container(
                 padding: EdgeInsets.only(bottom: 10,top:10),
@@ -174,6 +212,31 @@ late List<String> actionCrises = [];
                     SizedBox(
                           height: 7,
                         ),
+                      Row(
+                      children: [
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Icon(
+                          Icons.title_sharp,
+                          size: 30,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          typeCrises[i],
+                          style: TextStyle(
+                            fontSize: 15,                          
+                            fontWeight: FontWeight.w700
+                          ),
+                        ),
+                        
+                      ],
+                    ),
+                    SizedBox(
+                          height: 7,
+                        ),
                     Row(
                       children: [
                         SizedBox(
@@ -189,7 +252,7 @@ late List<String> actionCrises = [];
                         Expanded(
                           child: Container(
                             padding: EdgeInsets.only(right: 30),
-                            child: Text(actionCrises[i],
+                            child: Text(traitementCrises[i],
                               softWrap: true,                          
                               textAlign: TextAlign.justify,
                               overflow: TextOverflow.ellipsis,
@@ -203,13 +266,12 @@ late List<String> actionCrises = [];
                           ),
                         ),
                       
-                        
-                        
                       ],
                     )
                   ],
                 ),
               )
+              
             ],
           )
         ]      

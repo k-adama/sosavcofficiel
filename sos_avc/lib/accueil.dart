@@ -1,6 +1,8 @@
 // ignore_for_file: unused_import, prefer_const_constructors, duplicate_ignore, unnecessary_new, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sos_avc/login.dart';
 
 import 'mesTables/actualite.dart';
 import 'mesTables/contact.dart';
@@ -40,6 +42,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+//Début Variables
+  var idMalade;
+  //Fin variables
+
+ //Debut function
+  Future<void>  requiredId() async {
+      final prefs =  await SharedPreferences.getInstance(); //sharedpreference instence
+      
+    //get code MALADE
+    setState(() {
+      idMalade = prefs.getString('idMalade');
+    });
+    //Fin function
+  }
+  
+  @override
+  void initState() {
+    requiredId();
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -54,10 +79,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 icon: Icon(Icons.add_alert_rounded,
                     color: Color.fromARGB(255, 6, 74, 176), size: 34.0),
                 onPressed: () {
-                  Navigator.push(
+                    idMalade == null ? 
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MyLogin(),
+                      ),
+                    )
+                    :
+                    Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => MySignal()),
-                  );
+                    );
+                 
                 }),
           ],
           //Création du menu dans le appbar

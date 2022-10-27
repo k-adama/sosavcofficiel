@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sos_avc/accueil.dart';
 import 'package:sos_avc/mesTables/contact.dart';
 import 'package:sos_avc/option.dart';
@@ -42,7 +43,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   //variables
   TextEditingController code = new TextEditingController();
-
+  
   //Fin variables
 
 //Vider champs après clique
@@ -61,14 +62,19 @@ class _MyHomePageState extends State<MyHomePage> {
           gravity: ToastGravity.SNACKBAR,
           fontSize: 16.0);
     } else {
+      var codeMalade = code.text;
+      //http://s-p4.com/kindo/traitement/verifCodeUsers.php
       final response = await http.post(
-          Uri.parse("http://s-p4.com/kindo/traitement/verifCodeUsers.php"),
+          Uri.parse("https://avcespoir.simplonien-da.net/mobile/login_malade.php"),
           body: {
             "code": code.text,
           });
       var data = json.decode(response.body);
       if (data == "accepte") {
         // ignore: use_build_context_synchronously
+        final prefs =  await SharedPreferences.getInstance(); //sharedpreference instence
+        //save code MALADE
+        prefs.setString('idMalade',codeMalade);
         Navigator.push(
           cont,
           MaterialPageRoute(builder: (context) => MyAccueil()),
@@ -84,8 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   //fin fonction
 
-  // int _counter = 0;
-
+  // int _counter = 0;  
   // void _incrementCounter() {
   //   setState(() {
   //     _counter++;
