@@ -1,7 +1,7 @@
 // ignore_for_file: unused_import, prefer_const_constructors, duplicate_ignore, unnecessary_new, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'mesTables/actualite.dart';
 import 'mesTables/contact.dart';
 import 'mesTables/infos.dart';
@@ -25,21 +25,36 @@ class MyAccueil extends StatelessWidget {
         primarySwatch: Colors.lightGreen,
       ),
 
-      home: const MyHomePage(title: 'SOS AVC'),
+      home: const MyHomePageAccueil(title: 'SOS AVC'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePageAccueil extends StatefulWidget {
+  const MyHomePageAccueil({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePageAccueil> createState() => _MyHomePageAccueilState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageAccueilState extends State<MyHomePageAccueil> {
+  String code = "";
+
+  Future getCode() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    setState(() {
+      code = preferences.getString("code")!;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getCode();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

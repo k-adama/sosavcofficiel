@@ -51,7 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MySignal()),
+                    MaterialPageRoute(
+                        builder: (context) => MyHomePageLogin(
+                              title: '',
+                            )),
                   );
                 }),
           ],

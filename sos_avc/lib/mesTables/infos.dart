@@ -103,13 +103,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: Center(
                     child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Icon(
                       Icons.coronavirus,
                       size: 70.0,
                     ),
-                    Text("Qu'est ce que l' AVC ?"),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "QU'EST CE QUE L'AVC",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 )),
               ),
@@ -175,10 +182,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: Center(
                     child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Icon(Icons.dangerous, size: 70.0),
-                    Text("Les symptômes de l'AVC !"),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "LES SYMPTÔMES DE L'AVC",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 )),
               ),
@@ -244,14 +258,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: Center(
                     child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Icon(Icons.health_and_safety, size: 70.0),
-                    Text("Les mesures de preventions de l'avc"),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "MESURES DE PREVENTIONS",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 )),
               ),
             ),
+
+            //PERSONNES VULNERABLES
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -269,10 +292,83 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: Center(
                     child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Icon(Icons.person_off, size: 70.0),
-                    Text("Les personnes vulnérables face à l'AVC"),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "LES SIGNES DE L'AVC",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                )),
+              ),
+            ),
+
+            //PROTOCOLES
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              color: Colors.green,
+              margin: EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () {
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    // shape: const RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.vertical(
+                    //   top: Radius.circular(30),
+                    // )),
+                    builder: (context) => DraggableScrollableSheet(
+                        initialChildSize: 0.9,
+                        maxChildSize: 0.9,
+                        minChildSize: 0.32,
+                        expand: false,
+                        builder: (context, scrollController) {
+                          return SingleChildScrollView(
+                              controller: scrollController,
+                              child: Container(
+                                child: Expanded(
+                                    child: new Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    new Container(
+                                      margin: const EdgeInsets.only(top: 5.0),
+                                      child: new Text(
+                                        "Elle repose sur la prise en charge des facteurs de risque d'AVC.• HTA : principal facteur de risque des AVC, ischémiques ou hémorragiques :augmentation du risque relatif (RR) de 4 environ ; plus de la moitié des AVC surviennent dans un contexte d'HTA chronique.Hypercholestérolémie : RR = 1,5. Ce facteur de risque majeur de l'infarctus du myocarde est un facteur de risque plus accessoire des infarctus cérébraux. ",
+                                        style: new TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 20.0),
+                                        textAlign: TextAlign.justify,
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                              ));
+                        }),
+                  );
+                },
+                child: Center(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.medical_services, size: 70.0),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "PROTOCOLES",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 )),
               ),
