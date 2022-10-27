@@ -1,46 +1,42 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unused_import, unnecessary_new, unused_local_variable, duplicate_ignore, non_constant_identifier_names
 
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sos_avc/accueil.dart';
 import 'package:sos_avc/mesTables/contact.dart';
 import 'package:sos_avc/option.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sos_avc/bienvenu.dart';
+import 'accueil.dart';
+import 'option.dart';
 
-void main() {
-  runApp(const MyLogin());
+void login() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  var code = preferences.getString('code');
+  runApp(MaterialApp(
+    home: code == null
+        ? MyHomePageLogin(
+            title: '',
+          )
+        : MyHomePageAccueil(
+            title: '',
+          ),
+  ));
 }
 
-class MyLogin extends StatelessWidget {
-  const MyLogin({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'sos avc',
-      theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-      ),
-      home: const MyHomePage(title: 'SOS AVC'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePageLogin extends StatefulWidget {
+  const MyHomePageLogin({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePageLogin> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePageLogin> {
   //variables
   TextEditingController code = new TextEditingController();
   
@@ -71,6 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
           });
       var data = json.decode(response.body);
       if (data == "accepte") {
+        SharedPreferences preferences = await SharedPreferences.getInstance();
+        preferences.setString("code", code.text);
         // ignore: use_build_context_synchronously
         final prefs =  await SharedPreferences.getInstance(); //sharedpreference instence
         //save code MALADE
@@ -90,7 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   //fin fonction
 
-  // int _counter = 0;  
+  // int _counter = 0;
+
   // void _incrementCounter() {
   //   setState(() {
   //     _counter++;
@@ -138,13 +137,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Center(
                     child: Column(
                       children: <Widget>[
-                        // Container(
-                        //   padding: const EdgeInsets.all(20),
-                        //   child: const Text(
-                        //     'Entrer votre identifiant',
-                        //     style: TextStyle(fontSize: 16),
-                        //   ),
-                        // ),
                         Container(
                           child: SizedBox(
                             width: 270,

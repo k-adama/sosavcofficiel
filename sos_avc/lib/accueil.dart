@@ -27,18 +27,18 @@ class MyAccueil extends StatelessWidget {
         primarySwatch: Colors.lightGreen,
       ),
 
-      home: const MyHomePage(title: 'SOS AVC'),
+      home: const MyHomePageAccueil(title: 'SOS AVC'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePageAccueil extends StatefulWidget {
+  const MyHomePageAccueil({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePageAccueil> createState() => _MyHomePageAccueilState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
