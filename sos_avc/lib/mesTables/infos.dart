@@ -4,6 +4,8 @@ import 'package:sos_avc/listeInfos/info_maladie.dart';
 import 'package:sos_avc/listeInfos/info_mesures.dart';
 import 'package:sos_avc/listeInfos/info_symptomes.dart';
 import 'package:sos_avc/listeInfos/vulnerables.dart';
+import 'package:sos_avc/listeInfos/protocoles.dart';
+
 
 void main() {
   runApp(const MyInfos());
@@ -63,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Icon(Icons.coronavirus, size: 70.0),
-                    Text("Qu'est ce que l' AVC ?"),
+                    Text("les differents types d'AVC ?"),
                   ],
                 )),
               ),
@@ -88,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Icon(Icons.dangerous, size: 70.0),
-                    Text("Les symptômes de l'AVC !"),
+                    Text("Les séquelles de l'AVC !"),
                   ],
                 )),
               ),
@@ -113,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(Icons.health_and_safety, size: 70.0),
-                    Text("Les mesures de preventions de l'avc"),
+                    Text("Les signes d'alertes et les  mesures de preventions de l'avc"),
                   ],
                 )),
               ),
@@ -138,7 +140,32 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Icon(Icons.person_off, size: 70.0),
-                    Text("Les personnes vulnérables face à l'AVC"),
+                    Text("AVC dans le monde : les chiffres "),
+                  ],
+                )),
+              ),
+            ),
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              color: Colors.green,
+              margin: EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Protocole(),
+                    ),
+                  );
+                },
+                child: Center(
+                    child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Icon(Icons.coronavirus, size: 70.0),
+                    Text("Protocole"),
                   ],
                 )),
               ),

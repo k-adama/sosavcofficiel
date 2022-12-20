@@ -35,6 +35,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+  String text = '''Les signes d’alerte, 
+Visage paralysé 
+Inertie d’un membre (bras , jambes ou la moitié d’un corps )
+Trouble de la parole 
+En urgence, appeler le numéro urgence disponible sur l’application pour être pris en charge 
+''';
+  String text2 = '''Les mesures de prévention
+Consulter un médecin une à deux fois par an( dépistage des facteurs de risques et les traiter ) 
+Baisser la TA (objectif <135/85 mmHg )
+Contrôler la glycémie (objectif < 1.1 g/L) et le cholestérol surtout le LDL 
+Arrêter strictement du tabac 
+Pratiquer une activité physique régulière et quotidienne sinon au moins 30 min de marche trois fois par semaine 
+''';
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -42,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               child: new Text(
-                "Les signes et les symptômes d’un AVC sont les mêmes pour les hommes et les femmes.Les symptômes peuvent survenir soudainement ou peuvent apparaître et disparaître pendant quelques jours. Les principaux signes avant-coureurs et symptômes d’un AVC comprennent :une faiblesse d’un seul côté de votre corps un engourdissement ou un fourmillement au niveau du visage dans les bras ou dans les jambes.",
+               text + text2,
                 textAlign: TextAlign.justify,
                 style: new TextStyle(color: Colors.black, fontSize: 30.0),
               ),
