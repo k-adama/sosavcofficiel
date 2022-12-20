@@ -1,48 +1,45 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unused_import, unnecessary_new, unused_local_variable, duplicate_ignore, non_constant_identifier_names
 
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:sos_avc/accueil.dart';
 import 'package:sos_avc/mesTables/contact.dart';
 import 'package:sos_avc/option.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sos_avc/bienvenu.dart';
+import 'accueil.dart';
+import 'option.dart';
 
-void main() {
-  runApp(const MyLogin());
+void login() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  var code = preferences.getString('code');
+  runApp(MaterialApp(
+    home: code == null
+        ? MyHomePageLogin(
+            title: '',
+          )
+        : MyHomePageAccueil(
+            title: '',
+          ),
+  ));
 }
 
-class MyLogin extends StatelessWidget {
-  const MyLogin({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'sos avc',
-      theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-      ),
-      home: const MyHomePage(title: 'SOS AVC'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePageLogin extends StatefulWidget {
+  const MyHomePageLogin({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePageLogin> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePageLogin> {
   //variables
   TextEditingController code = new TextEditingController();
-
+  
   //Fin variables
 
 //Vider champs après clique
@@ -61,14 +58,21 @@ class _MyHomePageState extends State<MyHomePage> {
           gravity: ToastGravity.SNACKBAR,
           fontSize: 16.0);
     } else {
+      var codeMalade = code.text;
+      //http://s-p4.com/kindo/traitement/verifCodeUsers.php
       final response = await http.post(
-          Uri.parse("http://s-p4.com/kindo/traitement/verifCodeUsers.php"),
+          Uri.parse("https://avcespoir.simplonien-da.net/mobile/login_malade.php"),
           body: {
             "code": code.text,
           });
       var data = json.decode(response.body);
       if (data == "accepte") {
+        SharedPreferences preferences = await SharedPreferences.getInstance();
+        preferences.setString("code", code.text);
         // ignore: use_build_context_synchronously
+        final prefs =  await SharedPreferences.getInstance(); //sharedpreference instence
+        //save code MALADE
+        prefs.setString('idMalade',codeMalade);
         Navigator.push(
           cont,
           MaterialPageRoute(builder: (context) => MyAccueil()),
@@ -112,78 +116,119 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Center(
+        child: Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-
-            // ignore: prefer_const_literals_to_create_immutables
-            children: <Widget>[
+            children: [
+              SizedBox(
+                height: 25,
+              ),
               Image.asset(
                 'images/log_avc.png',
-                height: 250,
+                height: 100,
                 width: 280,
               ),
-              Container(
-                padding: const EdgeInsets.all(20),
-                child: const Text(
-                  'Entrer votre identifiant',
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-              Container(
-                child: SizedBox(
-                  width: 270,
-                  child: TextFormField(
-                    controller: code,
-                    keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Numéro / Identifiant',
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                  child: SizedBox(
-                width: 190,
-                height: 45,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.limeAccent[700],
-                    shape: StadiumBorder(),
-                  ),
-                  child: Text(
-                    'SE CONNECTER',
-                  ),
-                  onPressed: () {
-                    login(context);
-                    Clean();
-                  },
-                ),
-              )),
               SizedBox(
                 height: 50,
               ),
-              Row(
-                // ignore: sort_child_properties_last
-                children: <Widget>[
-                  const Text('Pas identifiant?'),
-                  TextButton(
-                    child: const Text(
-                      'Contactez-nous !',
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold,
-                      ),
+              AlertDialog(
+                title: const Text('Entrez votre identifiant'),
+                content: SingleChildScrollView(
+                  child: Center(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          child: SizedBox(
+                            width: 270,
+                            child: TextFormField(
+                              controller: code,
+                              keyboardType: TextInputType.number,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'Numéro / Identifiant',
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Container(
+                            child: SizedBox(
+                          width: 190,
+                          height: 45,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.limeAccent[700],
+                              shape: StadiumBorder(),
+                            ),
+                            child: Text(
+                              'SE CONNECTER',
+                            ),
+                            onPressed: () {
+                              login(context);
+                              Clean();
+                            },
+                          ),
+                        )),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          // ignore: sort_child_properties_last
+                          children: <Widget>[
+                            const Text(
+                              'Pas identifiant?',
+                              style: TextStyle(
+                                fontSize: 12,
+                              ),
+                            ),
+                            TextButton(
+                              child: const Text(
+                                'Contactez-nous !',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (ctx) => AlertDialog(
+                                    title: Text(
+                                      "Comment créer mon compte ?",
+                                      style: TextStyle(
+                                        fontSize: 25,
+                                        color: Colors.red[400],
+                                      ),
+                                    ),
+                                    content: Text(
+                                      "Veuillez vous rendre dans le centre le plus proche pour vous faire enregistrer ou Contactez-nous pour avoir plus d'informations !",
+                                    ),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(ctx).pop();
+                                        },
+                                        child: Text(
+                                          "Ok",
+                                          style: TextStyle(fontSize: 25),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              },
+                            )
+                          ],
+                          mainAxisAlignment: MainAxisAlignment.center,
+                        ),
+                      ],
                     ),
-                    onPressed: () {},
-                  )
-                ],
-                mainAxisAlignment: MainAxisAlignment.center,
-              ),
+                  ),
+                ),
+              )
             ],
           ),
         ),

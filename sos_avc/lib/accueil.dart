@@ -1,12 +1,13 @@
 // ignore_for_file: unused_import, prefer_const_constructors, duplicate_ignore, unnecessary_new, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:sos_avc/mesTables/actualite.dart';
-import 'package:sos_avc/mesTables/contact.dart';
-import 'package:sos_avc/mesTables/infos.dart';
-import 'package:sos_avc/mesTables/signal_cas.dart';
-import 'package:sos_avc/mesTables/urgence.dart';
-import 'package:sos_avc/option.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sos_avc/login.dart';
+import 'mesTables/actualite.dart';
+import 'mesTables/contact.dart';
+import 'mesTables/infos.dart';
+import 'mesTables/signal_cas.dart';
+import 'mesTables/urgence.dart';
 
 void main() {
   runApp(const MyAccueil());
@@ -25,27 +26,52 @@ class MyAccueil extends StatelessWidget {
         primarySwatch: Colors.lightGreen,
       ),
 
-      home: const MyHomePage(title: 'SOS AVC'),
+      home: const MyHomePageAccueil(title: 'SOS AVC'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePageAccueil extends StatefulWidget {
+  const MyHomePageAccueil({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  // ignore: no_logic_in_create_state
+  State<MyHomePageAccueil> createState() => MyHomePageAccueilState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+//Début Variables
+  var idMalade;
+  //Fin variables
+
+ //Debut function
+  Future<void>  requiredId() async {
+      final prefs =  await SharedPreferences.getInstance(); //sharedpreference instence
+      
+    //get code MALADE
+    setState(() {
+      idMalade = prefs.getString('idMalade');
+    });
+    //Fin function
+  }
+  
+  @override
+  void initState() {
+    requiredId();
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: 40,
           automaticallyImplyLeading: false,
           actions: [
             IconButton(
@@ -53,10 +79,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 icon: Icon(Icons.add_alert_rounded,
                     color: Color.fromARGB(255, 6, 74, 176), size: 34.0),
                 onPressed: () {
-                  Navigator.push(
+                    idMalade == null ? 
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => login(),
+                      ),
+                    )
+                    :
+                    Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => MySignal()),
-                  );
+                    );
+                
                 }),
           ],
           //Création du menu dans le appbar

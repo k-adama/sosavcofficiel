@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:sos_avc/accueil.dart';
 import 'package:sos_avc/mesTables/actualite.dart';
-import 'package:sos_avc/mesTables/infos.dart';
+import 'package:sos_avc/mesTables/historic.dart';
 import 'package:sos_avc/mesTables/signal_formulaire.dart';
 
 void main() {
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // ignore: prefer_const_literals_to_create_immutables
           children: <Widget>[
             MySignalForm(),
-            MyInfos(),
+            MyHistoric(),
           ],
         ),
       ),

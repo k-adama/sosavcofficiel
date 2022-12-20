@@ -62,14 +62,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: Center(
                     child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Icon(Icons.coronavirus, size: 70.0),
-                    Text("les differents types d'AVC ?"),
+                    Text("Qu'est ce que l' AVC ?"),
                   ],
                 )),
               ),
             ),
+
+            //Bloc symptômes
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),

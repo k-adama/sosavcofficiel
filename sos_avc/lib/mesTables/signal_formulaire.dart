@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:async';
 import 'dart:io';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:sos_avc/accueil.dart';
 import 'package:sos_avc/option.dart';
@@ -53,21 +54,30 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   
   //variables
   var idMalade;
-  var idCrise; 
+  var idCrise;
+  late bool _isLoading; 
 
   //text editing controller for text field
   final _formKey = GlobalKey<FormState>();
   //la liste des villes
   List<String> villes = <String>[' ','Abidjan','Bouaké','Yamoussoukro','Daloa','San Pedro'];
+  List<String> type_avc = <String>['infarctus cérébral','hémorragique'];
 
   String? dropdownValue = '';
+  String? typeAvcSelected = '';
+
   final dateinput = TextEditingController(); 
   final action = TextEditingController();
   final medicament = TextEditingController(); 
+  late var date;
+  late List _existedVilles = [];
+  bool accessInternet = false;
+  String chargement = "false";
+  String msg = "";
 
   //Fin variables
 
@@ -78,46 +88,83 @@ Future<void>  requiredId() async {
   //get ID MALADE
   setState(() {
     idMalade = prefs.getString('idMalade');
+    print(prefs.getString('idMalade'));
+    
   });
   //get ID CRISE
   setState(() {
     idCrise = uuid.v1(); 
   });
-  print(idMalade);
-  print(idCrise);
+
 }
 
+Future checkInternet() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.mobile) {
+      accessInternet = true;
+     
+      getVilles();
+      // I am connected to a mobile network.
+    } else if (connectivityResult == ConnectivityResult.wifi) {
+      accessInternet = true;
+     
+      getVilles();
+      // I am connected to a wifi network.
+    }else {
+      getVilles();
+      
+    }
+  }
+
   //debut fonction
-  Future saveCrise(BuildContext cont) async {
-    // ignore: unused_local_variable
+  Future saveCrise() async {
+
     if (dateinput.text == "") {
       Fluttertoast.showToast(
           msg: "Veuillez renseigner la date !",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.SNACKBAR,
-          fontSize: 16.0);
+          fontSize: 16.0
+          );
     } else {
+      setState(() {
+          chargement = "true";
+          msg = "enregistrement en cours...";
+      });
+
       final response = await http.post(
-          Uri.parse("http://s-p4.com/kindo/traitement/insertCrise.php"),
-          body: {
-              "dateCrise": dateinput.text,
-              "medicament": medicament.text,
-              "action": action.text,
-              "lieuCrise": dropdownValue,
-          });
-      var data = json.decode(response.body);
-      if (data == "accepte") {
+        Uri.parse("https://avcespoir.simplonien-da.net/mobile/insertcrise.php"),
+        body: {
+            "dateCrise": date,
+            "medicament": medicament.text,
+            "action": typeAvcSelected,
+            "lieuCrise": dropdownValue,
+            "idMalade": idMalade,
+            "idCrise":  idCrise,
+        });
+      var data = jsonDecode(response.body);
+      if(data['code'] == 200) {
+              setState(() {
+                  chargement = "false";
+              });
         Fluttertoast.showToast(
-            msg: "enrégistrement effectué",
+            msg: data['message'],
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.SNACKBAR,
-            fontSize: 16.0);
+            fontSize: 16.0
+            );
+            Clean();
+            uploadImages();
       } else {
+          setState(() {
+                  chargement = "false";
+              });
         Fluttertoast.showToast(
-            msg: "erreur d'enregistrement, réesayer!",
+            msg: data['message'],
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.SNACKBAR,
             fontSize: 16.0);
+            print(data);
       }
     }
   }
@@ -131,64 +178,73 @@ Future<void>  requiredId() async {
     action.clear();
     medicament.clear();
     dateinput.clear();
-    Images.clear(); 
+    //Images.clear();
     setState(() {
       dropdownValue = ' ';
+      typeAvcSelected = ' ';
     });
   }
 
-List files = [];
+// List files = [];
   //debut fonction
-  Future<bool> uploadImages(List imgs) async {
-    
-    
-    print(imgs);
-  
-    print(imgs.length);
-    if(imgs.length != 0){
+  Future uploadImages() async {
+
+    if(Images.length != 0){
+        setState(() {
+            chargement = "true";
+            msg = "Téléchargement des images";
+        });
       
       var uri = "https://avcespoir.simplonien-da.net/mobile/insert_img.php";
       
       var request = http.MultipartRequest('POST', Uri.parse(uri));
-      var nbr =0;
-      for (int i = 0; i < imgs.length; i++) {
-        
-        nbr++;
-        var pic = await http.MultipartFile.fromPath("image",imgs[i]);
+      //String uploadurl = "https://avcespoir.simplonien-da.net/mobile/upload_img_test.php";
+      
+      for (int i = 0; i < Images.length; i++) {
+      
+        var pic = await http.MultipartFile.fromPath("image",Images[i]);
         request.files.add(pic);
         request.fields['id_malade'] = idMalade;
         request.fields['id_crise'] = idCrise;
-
+        
         await request.send().then((result) {
-  
+            setState(() {
+                  chargement = "true";
+                  msg = "Téléchargement des images";
+              });
           http.Response.fromStream(result).then((response) {
   
             var message = jsonDecode(response.body);
   
             // show snackbar if input data successfully
-              Fluttertoast.showToast(
-                msg: message['message']+"$nbr",
+              setState(() {
+                  chargement = "false";
+              });
+              Fluttertoast.showToast( 
+                msg: message['message'],
                 toastLength: Toast.LENGTH_SHORT,
                 gravity: ToastGravity.SNACKBAR,
                 fontSize: 16.0
               );
-              Clean();
-              return true;
+              
+              
           });
-  
+          Images.clear();
         }).catchError((e) {
-          print(e);
+         
   
         });
         
       }
 
     }
-    return false;
+    
       
   }
 
-  List<String> Images = [];
+
+  
+  List Images = [];
 
   final ImagePicker picker = ImagePicker();
 
@@ -201,24 +257,40 @@ List files = [];
   }
 
   Future getVilles() async {
-      try{
-  
-        final response = await http.get(Uri.parse('https://avcespoir.simplonien-da.net/mobile/get_ville.php?idMalade='+idMalade+'&idCrise='+idCrise));
-  
-        if(response.statusCode == 200){
-          final data = jsonDecode(response.body);
-  
-          setState(() {
-            villes = data;
-            print(villes);
-          });
-        }
-  
-      }catch(e){
-  
-        print(e);
+    final prefs =  await SharedPreferences.getInstance();
+      var isVillesfetch = prefs.getString('isVillesfetch');
         
-      }
+    if(accessInternet == true && (isVillesfetch == "false" || isVillesfetch == null)){
+        
+        try{
+  
+          final response = await http.get(Uri.parse('https://avcespoir.simplonien-da.net/mobile/get_villes.php'));
+    
+          if(response.statusCode == 200){
+            final List data = json.decode(response.body);
+            List<String> fetchVilles = [];
+            for(var i=0;i<data.length;i++){
+              fetchVilles.add(data[i]);
+            }
+        
+            prefs.setStringList('villes',fetchVilles);
+            setState(() {
+              villes = prefs.getStringList('villes')!;
+              prefs.setString('isVillesfetch',"true");
+            
+            });
+          }
+    
+        }catch(e){
+        
+        }
+    } else {
+      setState(() {
+        villes = prefs.getStringList('villes')!;
+      });
+      
+    }
+      
   }
 
   void myAlert() {
@@ -266,6 +338,17 @@ List files = [];
         });
   }
 
+  _chargement(String msg){
+    return Column(
+      children: [
+        CircularProgressIndicator(
+          backgroundColor: Colors.cyanAccent,
+          valueColor: new AlwaysStoppedAnimation<Color>(Colors.red),
+        ),
+        Text(msg),
+      ],
+    );
+  }
 
 
   //Fin function
@@ -274,15 +357,16 @@ List files = [];
     dateinput.text=""; //set the initial value of text field
     requiredId();
     getVilles();
+    checkInternet();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        children:[ Form(
+      body: SingleChildScrollView(
+        //scrollDirection: Axis.vertical,
+        child: Form(
           key: _formKey,
           child: Container(
             padding: EdgeInsets.all(15.0),
@@ -304,17 +388,25 @@ List files = [];
                         );
                         
                         if(pickedDate != null ){
-                          print(pickedDate);  //pickedDate output format => 2021-03-10 00:00:00.000
-                          String formattedDate = DateFormat('dd-MM-yyyy').format(pickedDate); 
-                          print(formattedDate); //formatted date output using intl package =>  2021-03-16
+                          //pickedDate output format => 2021-03-10 00:00:00.000
+                          String formattedDate = DateFormat('dd-MM-yyyy').format(pickedDate);
+                          String db_Date = DateFormat('yyyy-MM-dd').format(pickedDate); 
+                          //formatted date output using intl package =>  2021-03-16
                             //you can implement different kind of Date Format here according to your requirement
 
                           setState(() {
-                            dateinput.text = formattedDate; //set output date to TextField value. 
+                            dateinput.text = formattedDate;
+                            date = db_Date; //set output date to TextField value. 
                           });
 
                         }else{
-                            print("Date is not selected");
+                            
+                             Fluttertoast.showToast( 
+                            msg: 'la date n\'est pas selectionnée',
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.SNACKBAR,
+                            fontSize: 16.0
+                          );
                         }
                       },
                   ),
@@ -348,23 +440,35 @@ List files = [];
                       },
                     ),
                   ),
-                  Container(
+                    Container(
                     margin: EdgeInsets.only(top: 20),
-                    child: TextFormField(
-                        controller: action,
-                        decoration: const InputDecoration(
-                          icon: const Icon(Icons.pending_actions_outlined),
-                          hintText: 'Dernière action avant la crise',
-                          labelText: 'action avant la crise',
-                        ),
-                        validator: (value) {
+                    child : DropdownButtonFormField(
+                      validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'veuillez renseigner le champs';
+                            return 'Veuillez renseigner le champs';
                           }
                           return null;
-                        },
+                      },
+                      decoration: const InputDecoration(
+                        icon: const Icon(Icons.location_on),
+                        hintText: 'Type d\'AVC',
+                        labelText: 'choisir le type d\'AVC',
                       ),
-                  ),
+                      items: type_avc.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (String? value) {
+                        // This is called when the user selects an item.
+                        setState(() {
+                          typeAvcSelected = value;
+                        });
+                      },
+                    ),
+                  ),                  
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     child : TextFormField(
@@ -372,8 +476,8 @@ List files = [];
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
                         icon: const Icon(Icons.medical_services_outlined),
-                        hintText: 'Entrer les nom des médicaments',
-                        labelText: 'Médicaments pris',
+                        hintText: 'Entrer le traitement observé',
+                        labelText: 'décrivez le traitement observé',
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -415,9 +519,6 @@ List files = [];
                       ]
                     ),
                   ),
-
-                
-                  
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child:Row(
@@ -436,7 +537,7 @@ List files = [];
                             icon: Icon(Icons.close_sharp,
                               color: Color.fromARGB(255, 176, 6, 6), size: 25.0),
                             onPressed: () {
-                              print('deleted');
+                              
                               setState(() {
                                 Images.remove(img);
                               });
@@ -446,6 +547,12 @@ List files = [];
                         );
                     }).toList(),
                   ),),
+                  Center(
+                    child:chargement == "false"?
+                            Text("") :
+                            _chargement(msg), 
+                            
+                          ),
                   Container(
                     alignment: Alignment.center,
                     margin: EdgeInsets.only(top: 25),
@@ -462,13 +569,24 @@ List files = [];
                           'Enrégistrer',
                         ),
                         onPressed: () {
-                          uploadImages(Images);    
+                          
+                          
                             if (_formKey.currentState!.validate()) {
-                              
-                              //Clean();                       
-                              // ScaffoldMessenger.of(context).showSnackBar(
-                              //   const SnackBar(content: Text('enrégistrement effectué')),
-                              // );
+                                if(accessInternet == true){
+                                  
+                                  saveCrise();
+                                  //Clean();                       
+                                  // ScaffoldMessenger.of(context).showSnackBar(
+                                  //   const SnackBar(content: Text('enrégistrement effectué')),
+                                  // );
+                                }else {
+                                  Fluttertoast.showToast(
+                                  msg: "Vous n'êtes pas connecté à internet",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.SNACKBAR,
+                                  fontSize: 16.0);
+                                }
+                            
                             }
                           
                           //Clean();
@@ -481,7 +599,7 @@ List files = [];
                 ],
               ),
           ),
-        ),],
+        ),
       ),
     
     );
