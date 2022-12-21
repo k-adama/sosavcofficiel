@@ -38,10 +38,10 @@ class MyHomePageAccueil extends StatefulWidget {
 
   @override
   // ignore: no_logic_in_create_state
-  State<MyHomePageAccueil> createState() => MyHomePageAccueilState();
+  State<MyHomePageAccueil> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePageAccueil> {
 
 //Début Variables
   var idMalade;
@@ -79,13 +79,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 icon: Icon(Icons.add_alert_rounded,
                     color: Color.fromARGB(255, 6, 74, 176), size: 34.0),
                 onPressed: () {
-                    idMalade == null ? 
+                  idMalade == null ? 
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => login(),
-                      ),
+                        builder: (context) => MyHomePageLogin(
+                              title: '',
+                            )),                      
                     )
+                    
                     :
                     Navigator.push(
                     context,

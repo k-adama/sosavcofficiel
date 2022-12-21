@@ -53,19 +53,71 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.all(8.0),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyMaladie(),
-                    ),
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    // shape: const RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.vertical(
+                    //   top: Radius.circular(30),
+                    // )),
+                    builder: (context) => DraggableScrollableSheet(
+                        initialChildSize: 0.9,
+                        maxChildSize: 1,
+                        minChildSize: 0.32,
+                        expand: false,
+                        builder: (context, scrollController) {
+                          return SingleChildScrollView(
+                              controller: scrollController,
+                              child: Container(
+                                child: Expanded(
+                                    child: new Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Stack(
+                                      children: [
+                                        Container(
+                                          child: Image.asset(
+                                            'images/imAvc1.jpg',
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    new Container(
+                                      margin: const EdgeInsets.only(top: 5.0),
+                                      child: new Text(
+                                        "Les accidents vasculaires cérébraux (AVC) sont caractérisés par la survenue brutale d'un déficit neurologique focal. Ils affectent environ 150000 patients par an, un nombre qui a tendance à augmenter en raison de l'augmentation de la population et de son vieillissement. Les AVC peuvent survenir à tout âge, y compris dans l'enfance, mais, dans 75 % des cas, il affecte des patients âgés de plus de 65 ans. L'âge moyen de survenue d'un AVC est de 73 ans (70 ans pour les hommes et 76 ans pour les femmes.",
+                                        style: new TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 20.0),
+                                        textAlign: TextAlign.justify,
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                              ));
+                        }),
                   );
                 },
                 child: Center(
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Icon(Icons.coronavirus, size: 70.0),
-                    Text("Qu'est ce que l' AVC ?"),
+                    Icon(
+                      Icons.coronavirus,
+                      size: 70.0,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "QU'EST CE QUE L'AVC",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 )),
               ),
@@ -80,23 +132,74 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.all(8.0),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MySymptomes(),
-                    ),
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    // shape: const RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.vertical(
+                    //   top: Radius.circular(30),
+                    // )),
+                    builder: (context) => DraggableScrollableSheet(
+                        initialChildSize: 0.9,
+                        maxChildSize: 0.9,
+                        minChildSize: 0.32,
+                        expand: false,
+                        builder: (context, scrollController) {
+                          return SingleChildScrollView(
+                              controller: scrollController,
+                              child: Container(
+                                child: Expanded(
+                                    child: new Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Stack(
+                                      children: [
+                                        Container(
+                                          child: Image.asset(
+                                            'images/imSym1.jpg',
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    new Container(
+                                      margin: const EdgeInsets.only(top: 5.0),
+                                      child: new Text(
+                                        "Les signes et les symptômes d’un AVC sont les mêmes pour les hommes et les femmes.Les symptômes peuvent survenir soudainement ou peuvent apparaître et disparaître pendant quelques jours. Les principaux signes avant-coureurs et symptômes d’un AVC comprennent :une faiblesse d’un seul côté de votre corps un engourdissement ou un fourmillement au niveau du visage dans les bras ou dans les jambes.",
+                                        style: new TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 20.0),
+                                        textAlign: TextAlign.justify,
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                              ));
+                        }),
                   );
                 },
                 child: Center(
                     child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Icon(Icons.dangerous, size: 70.0),
-                    Text("Les séquelles de l'AVC !"),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "LES SYMPTÔMES DE L'AVC",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 )),
               ),
             ),
+
+            // MESURES DE PREVENTIONS AVC
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -105,23 +208,74 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.all(8.0),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyMesuresPreventives(),
-                    ),
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    // shape: const RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.vertical(
+                    //   top: Radius.circular(30),
+                    // )),
+                    builder: (context) => DraggableScrollableSheet(
+                        initialChildSize: 0.9,
+                        maxChildSize: 0.9,
+                        minChildSize: 0.32,
+                        expand: false,
+                        builder: (context, scrollController) {
+                          return SingleChildScrollView(
+                              controller: scrollController,
+                              child: Container(
+                                child: Expanded(
+                                    child: new Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Stack(
+                                      children: [
+                                        Container(
+                                          child: Image.asset(
+                                            'images/imSym1.jpg',
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    new Container(
+                                      margin: const EdgeInsets.only(top: 5.0),
+                                      child: new Text(
+                                        "Elle repose sur la prise en charge des facteurs de risque d'AVC.• HTA : principal facteur de risque des AVC, ischémiques ou hémorragiques :augmentation du risque relatif (RR) de 4 environ ; plus de la moitié des AVC surviennent dans un contexte d'HTA chronique.Hypercholestérolémie : RR = 1,5. Ce facteur de risque majeur de l'infarctus du myocarde est un facteur de risque plus accessoire des infarctus cérébraux. ",
+                                        style: new TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 20.0),
+                                        textAlign: TextAlign.justify,
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                              ));
+                        }),
                   );
                 },
                 child: Center(
                     child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Icon(Icons.health_and_safety, size: 70.0),
-                    Text("Les signes d'alertes et les  mesures de preventions de l'avc"),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "MESURES DE PREVENTIONS",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 )),
               ),
             ),
+
+            //PERSONNES VULNERABLES
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -139,14 +293,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: Center(
                     child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Icon(Icons.person_off, size: 70.0),
-                    Text("AVC dans le monde : les chiffres "),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "LES SIGNES DE L'AVC",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 )),
               ),
             ),
+
+            //PROTOCOLES
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -155,19 +318,58 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.all(8.0),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Protocole(),
-                    ),
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    // shape: const RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.vertical(
+                    //   top: Radius.circular(30),
+                    // )),
+                    builder: (context) => DraggableScrollableSheet(
+                        initialChildSize: 0.9,
+                        maxChildSize: 0.9,
+                        minChildSize: 0.32,
+                        expand: false,
+                        builder: (context, scrollController) {
+                          return SingleChildScrollView(
+                              controller: scrollController,
+                              child: Container(
+                                child: Expanded(
+                                    child: new Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    new Container(
+                                      margin: const EdgeInsets.only(top: 5.0),
+                                      child: new Text(
+                                        "Elle repose sur la prise en charge des facteurs de risque d'AVC.• HTA : principal facteur de risque des AVC, ischémiques ou hémorragiques :augmentation du risque relatif (RR) de 4 environ ; plus de la moitié des AVC surviennent dans un contexte d'HTA chronique.Hypercholestérolémie : RR = 1,5. Ce facteur de risque majeur de l'infarctus du myocarde est un facteur de risque plus accessoire des infarctus cérébraux. ",
+                                        style: new TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 20.0),
+                                        textAlign: TextAlign.justify,
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                              ));
+                        }),
                   );
                 },
                 child: Center(
                     child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Icon(Icons.coronavirus, size: 70.0),
-                    Text("Protocole"),
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.medical_services, size: 70.0),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "PROTOCOLES",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 )),
               ),

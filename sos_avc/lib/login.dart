@@ -88,13 +88,6 @@ class _MyHomePageState extends State<MyHomePageLogin> {
   }
   //fin fonction
 
-  // int _counter = 0;
-
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
