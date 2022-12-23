@@ -42,16 +42,16 @@ class _MyHomePageState extends State<MyHomePage> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          toolbarHeight: 40,
+          toolbarHeight: 50,
           automaticallyImplyLeading: false,
           actions: [
             IconButton(
-                icon: Icon(Icons.add_alert_rounded,
+                icon: Icon(Icons.note_add_sharp,
                     color: Color.fromARGB(255, 6, 74, 176), size: 34.0),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MySignal()),
+                    MaterialPageRoute(builder: (context) => MyLogin()),
                   );
                 }),
           ],

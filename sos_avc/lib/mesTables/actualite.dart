@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unused_import
 
-import 'dart:ui';
-
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:sos_avc/listeInfos/info_actualite.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 void main() {
   runApp(const MyActualite());
@@ -37,39 +36,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 //debut variables
-  final List<Map<String, dynamic>> _items = List.generate(
-      10,
-      (index) => {
-            "id": index,
-            "title": "Journée Nationale de lutte contre l'AVC",
-            // "subtitle": "Subtitle $index"
-          });
-
+  @override
+  void initState() {
+    super.initState();
+    // Enable virtual display.
+    if (Platform.isAndroid) WebView.platform = AndroidWebView();
+  }
 //Fin variables
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: ListView(
-            children: ListTile.divideTiles(
-                color: Colors.deepPurple,
-                tiles: _items.map((item) => ListTile(
-                    leading: CircleAvatar(
-                      radius: 25,
-                      backgroundColor: Colors.amber,
-                      backgroundImage: AssetImage('images/log_avc.png'),
-                    ),
-                    title: Text(item['title']),
-                    // subtitle: Text(item['subtitle']),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MyInfoActualite(),
-                        ),
-                      );
-                    }))).toList()
-                    )
+    return WebView(
+      javascriptMode: JavascriptMode.unrestricted,
+      initialUrl: 'https://avcespoir.org/?page_id=6008',
     );
   }
 }
