@@ -65,8 +65,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
   //la liste des villes
   List<String> villes = <String>[' ','Abidjan','Bouaké','Yamoussoukro','Daloa','San Pedro'];
+  List<String> type_avc = <String>['infarctus cérébral','hémorragique'];
 
   String? dropdownValue = '';
+  String? typeAvcSelected = '';
+
   final dateinput = TextEditingController(); 
   final action = TextEditingController();
   final medicament = TextEditingController(); 
@@ -85,6 +88,7 @@ Future<void>  requiredId() async {
   //get ID MALADE
   setState(() {
     idMalade = prefs.getString('idMalade');
+    print(prefs.getString('idMalade'));
     
   });
   //get ID CRISE
@@ -133,9 +137,9 @@ Future checkInternet() async {
         body: {
             "dateCrise": date,
             "medicament": medicament.text,
-            "action": action.text,
+            "action": typeAvcSelected,
             "lieuCrise": dropdownValue,
-            "idMalade": "sqsdqds",
+            "idMalade": idMalade,
             "idCrise":  idCrise,
         });
       var data = jsonDecode(response.body);
@@ -151,8 +155,6 @@ Future checkInternet() async {
             );
             Clean();
             uploadImages();
-            
-            
       } else {
           setState(() {
                   chargement = "false";
@@ -179,6 +181,7 @@ Future checkInternet() async {
     //Images.clear();
     setState(() {
       dropdownValue = ' ';
+      typeAvcSelected = ' ';
     });
   }
 
@@ -196,13 +199,13 @@ Future checkInternet() async {
       
       var request = http.MultipartRequest('POST', Uri.parse(uri));
       //String uploadurl = "https://avcespoir.simplonien-da.net/mobile/upload_img_test.php";
+      
       for (int i = 0; i < Images.length; i++) {
-
       
         var pic = await http.MultipartFile.fromPath("image",Images[i]);
         request.files.add(pic);
-        // request.fields['id_malade'] = idMalade;
-        //request.fields['id_crise'] = idCrise;
+        request.fields['id_malade'] = idMalade;
+        request.fields['id_crise'] = idCrise;
         
         await request.send().then((result) {
             setState(() {
@@ -437,23 +440,35 @@ Future checkInternet() async {
                       },
                     ),
                   ),
-                  Container(
+                    Container(
                     margin: EdgeInsets.only(top: 20),
-                    child: TextFormField(
-                        controller: action,
-                        decoration: const InputDecoration(
-                          icon: const Icon(Icons.pending_actions_outlined),
-                          hintText: 'Dernière action avant la crise',
-                          labelText: 'action avant la crise',
-                        ),
-                        validator: (value) {
+                    child : DropdownButtonFormField(
+                      validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'veuillez renseigner le champs';
+                            return 'Veuillez renseigner le champs';
                           }
                           return null;
-                        },
+                      },
+                      decoration: const InputDecoration(
+                        icon: const Icon(Icons.location_on),
+                        hintText: 'Type d\'AVC',
+                        labelText: 'choisir le type d\'AVC',
                       ),
-                  ),
+                      items: type_avc.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (String? value) {
+                        // This is called when the user selects an item.
+                        setState(() {
+                          typeAvcSelected = value;
+                        });
+                      },
+                    ),
+                  ),                  
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     child : TextFormField(
@@ -461,8 +476,8 @@ Future checkInternet() async {
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
                         icon: const Icon(Icons.medical_services_outlined),
-                        hintText: 'Entrer les nom des médicaments',
-                        labelText: 'Médicaments pris',
+                        hintText: 'Entrer le traitement observé',
+                        labelText: 'décrivez le traitement observé',
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {

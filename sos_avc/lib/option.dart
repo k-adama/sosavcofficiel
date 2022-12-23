@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:sos_avc/accueil.dart';
-import 'package:sos_avc/accueil_non_patient.dart';
 import 'package:sos_avc/login.dart';
 import 'package:sos_avc/main.dart';
 
@@ -37,14 +36,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
-
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MyLogin(),
+                        builder: (context) => MyHomePageLogin(
+                          title: '',
+                        ),
                       ),
                     );
                   },
@@ -107,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MyAccueilNonPatient(),
+                        builder: (context) => MyAccueil(),
                       ),
                     );
                   },
