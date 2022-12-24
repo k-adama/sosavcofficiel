@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     new Container(
                                       margin: const EdgeInsets.only(top: 5.0),
                                       child: new Text(
-                                        "Les accidents vasculaires cérébraux (AVC) sont caractérisés par la survenue brutale d'un déficit neurologique focal. Ils affectent environ 150000 patients par an, un nombre qui a tendance à augmenter en raison de l'augmentation de la population et de son vieillissement. Les AVC peuvent survenir à tout âge, y compris dans l'enfance, mais, dans 75 % des cas, il affecte des patients âgés de plus de 65 ans. L'âge moyen de survenue d'un AVC est de 73 ans (70 ans pour les hommes et 76 ans pour les femmes.",
+                                        "Les différents types d'AVC ,Il existe deux types d'AVC : ischémiques (provoqués par l'obstruction d'un vaisseau sanguin par un caillot) ou hémorragiques (provoqués par une hémorragie)AVC ischémique. AVC hémorragique, Il est ici question de la rupture d'un vaisseau, entraînant une  hémorragie. Le sang se répand et endommage le tissu cérébral alentour. La localisation et la grosseur de l'hématome déterminent sa gravité. On parle dans ce cas d'AVC hémorragique, d'hémorragie cérébrale ou d'hématome cérébral.•On estime que 20% des AVC sont de nature hémorragique. Les conséquences des AVC dépendent de nombreux facteurs : la vitesse de rétablissement de la circulation sanguine, la durée de la privation en oxygène et la localisation cérébrale de l'accident.",
                                         style: new TextStyle(
                                             color: Colors.black,
                                             fontSize: 20.0),
@@ -168,7 +168,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                     new Container(
                                       margin: const EdgeInsets.only(top: 5.0),
                                       child: new Text(
-                                        "Les signes et les symptômes d’un AVC sont les mêmes pour les hommes et les femmes.Les symptômes peuvent survenir soudainement ou peuvent apparaître et disparaître pendant quelques jours. Les principaux signes avant-coureurs et symptômes d’un AVC comprennent :une faiblesse d’un seul côté de votre corps un engourdissement ou un fourmillement au niveau du visage dans les bras ou dans les jambes.",
+                                         '''Les signes d’alerte, Visage paralysé Inertie d’un membre (bras , jambes ou la moitié d’un corps )Trouble de la parole En urgence, appeler le numéro urgence disponible sur l’application pour être pris en charge.Les mesures de prévention00
+                                          Consulter un médecin une à deux fois par an( dépistage des facteurs de risques et les traiter ) 
+                                          Baisser la TA (objectif <135/85 mmHg )
+                                          Contrôler la glycémie (objectif < 1.1 g/L) et le cholestérol surtout le LDL 
+                                          Arrêter strictement du tabac 
+                                          Pratiquer une activité physique régulière et quotidienne sinon au moins 30 min de marche trois fois par semaine ''',
                                         style: new TextStyle(
                                             color: Colors.black,
                                             fontSize: 20.0),
@@ -326,6 +331,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     //   top: Radius.circular(30),
                     // )),
                     builder: (context) => DraggableScrollableSheet(
+                      
                         initialChildSize: 0.9,
                         maxChildSize: 0.9,
                         minChildSize: 0.32,
@@ -344,7 +350,24 @@ class _MyHomePageState extends State<MyHomePage> {
                                     new Container(
                                       margin: const EdgeInsets.only(top: 5.0),
                                       child: new Text(
-                                        "Elle repose sur la prise en charge des facteurs de risque d'AVC.• HTA : principal facteur de risque des AVC, ischémiques ou hémorragiques :augmentation du risque relatif (RR) de 4 environ ; plus de la moitié des AVC surviennent dans un contexte d'HTA chronique.Hypercholestérolémie : RR = 1,5. Ce facteur de risque majeur de l'infarctus du myocarde est un facteur de risque plus accessoire des infarctus cérébraux. ",
+                                        '''le Protocole de prise en charge des AVC ischémiques : après un scanner cérébral et/ ou une IRM cérébrale éliminant une hémorragie intra parenchymateuse ou méningée Aspegic 250 mg IV le premier jour , puis relais  le lendemain  Kardegic 160 mg ( 1 scht à midi ) Nacl 0,9 % 1L sur 24h en continue Lovenox 4000 UI/0,4 ml une seringue en ss/c par jour Protocole insuline ( adaptée en fonction de la glycémie )Traitement de la TA que si >220/120 mmHg dans les 72h minimales qui suivent l’AVC , par le nicardipine 1mg/ml (50 ml vitesse 0,5 mh/h ),Position inclinée au 30° au premier jour ,puis assise au 2ème jour ,  puis fauteuil et lever autoriser au 3ème jour à l’absence de sténose intra ou extra crânienne aux examens radiologiques des troncs supra aortiques ;Surveillances TA, FC, Glycémie , Saturation en oxygène, globe vesical , NIHSS ( clinique ).
+                                        Bilan etiologique Echodoppler des troncs supra aortiques Echographie trans-thoracique ou trans-oesophagienne ( patient jeune < 55 ans ) ,Holter ECG de 72 h ,Bilan biologique : ASAT, ALAT,GGT,PAL, BILIRUBINE, CHOLESTEROL HDL, TRIGLYCERIDES, LDL, NFS, IONOGRAMME COMPLET, UREE, CREATININE, CLAIRANCE, FIBRINOGENE, TP, TCA, CRP, HBA1C A JEUN, TSH/FT4, TROPONINE, VIT B12, B9, B6 Et débuter dès le lever du malade : kinésithérapie , ergothérapie , orthophoniste et orienter dans un centre de rééducation fonctionnel ou un soins de suivi et de réadaptation après la réalisation du bilan étiologique. 
+                                        Traitement de sortie en focntion de la cause Selon la classification TOAST, on distingue 5 causes 
+                                          -	Atheromateuse ( stenose intra cranienne ou extra cranienne > 50% ) 2AAP pendant 21 jours ou 3 mois puis passage au simple AAP, Atorvastatine forte 80 mg dose avec obj LDL < 0,55 g/L
+                                          -	Cardio embolique ( FA , Flutter , thrombus intra VG ) : Eliquis , Xarelto , Pradaxa 
+                                          -	Microangiopathique :  simple AAP , atorvastatine forte dose obj LDL <0,70 g/L
+                                          -	Cause rares ( dissection arterielle , FOP-ASIA , troubles de la coagulation = simple AAP, si cancer = INNOHEP ) 
+                                          -	Cause indeterminée : simple AAP .
+                                          
+                                            Protocole de traitement AVC HEMMORAGIQUE 
+                                            Nacl 0,9 % 1L sur 24h en continue 
+                                            Lovenox 4000 UI/0,4 ml une seringue en ss/c par jour à partir de J2
+                                            Protocole insuline 
+                                            Traiter la TA par le nicardipine 1mg/ml (50 ml vitesse 0,5 mh/h )obj < 135/85 mmHg
+                                            Position inclinée au 30° au premier jour ,puis assise au 2ème jour ,  puis fauteuil et lever autoriser au 3ème jour à l’absence de sténose intra ou extra crânienne aux examens radiologiques des troncs supra aortiques ;
+                                            Surveillances TA, FC, Glycémie , Saturation en oxygène, globe vesical , ETAT DE CONSCIENCE , NIHSS ( clinique )   ''' 
+
+,
                                         style: new TextStyle(
                                             color: Colors.black,
                                             fontSize: 20.0),

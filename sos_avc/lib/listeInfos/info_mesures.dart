@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               child: new Text(
-                "Elle repose sur la prise en charge des facteurs de risque d'AVC.• HTA : principal facteur de risque des AVC, ischémiques ou hémorragiques :augmentation du risque relatif (RR) de 4 environ ; plus de la moitié des AVC surviennent dans un contexte d'HTA chronique.  • Tabac : RR = 2. Important facteur de risque d'athérosclérose carotidienne.• Hypercholestérolémie : RR = 1,5. Ce facteur de risque majeur de l'infarctus du myocarde est un facteur de risque plus accessoire des infarctus cérébraux• ",
+                " repose sur la prise en charge des facteurs de risque d'AVC.• HTA : principal facteur de risque des AVC, ischémiques ou hémorragiques :augmentation du risque relatif (RR) de 4 environ ; plus de la moitié des AVC surviennent dans un contexte d'HTA chronique.  • Tabac : RR = 2. Important facteur de risque d'athérosclérose carotidienne.• Hypercholestérolémie : RR = 1,5. Ce facteur de risque majeur de l'infarctus du myocarde est un facteur de risque plus accessoire des infarctus cérébraux• ",
                 textAlign: TextAlign.justify,
                 style: new TextStyle(color: Colors.black, fontSize: 28.0),
               ),
