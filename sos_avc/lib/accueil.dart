@@ -71,12 +71,12 @@ class _MyHomePageState extends State<MyHomePageAccueil> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          toolbarHeight: 40,
+          toolbarHeight: 50,
           automaticallyImplyLeading: false,
           actions: [
             IconButton(
                 // ignore: prefer_const_constructors
-                icon: Icon(Icons.add_alert_rounded,
+                icon: Icon(Icons.note_add_sharp,
                     color: Color.fromARGB(255, 6, 74, 176), size: 34.0),
                 onPressed: () {
                   idMalade == null ? 
