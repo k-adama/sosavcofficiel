@@ -6,7 +6,6 @@ import 'package:sos_avc/listeInfos/info_symptomes.dart';
 import 'package:sos_avc/listeInfos/vulnerables.dart';
 import 'package:sos_avc/listeInfos/protocoles.dart';
 
-
 void main() {
   runApp(const MyInfos());
 }
@@ -52,56 +51,64 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.green,
               margin: EdgeInsets.all(8.0),
               child: InkWell(
-                onTap: () {
-                  showModalBottomSheet(
-                    context: context,
-                    isScrollControlled: true,
-                    // shape: const RoundedRectangleBorder(
-                    //     borderRadius: BorderRadius.vertical(
-                    //   top: Radius.circular(30),
-                    // )),
-                    builder: (context) => DraggableScrollableSheet(
-                        initialChildSize: 0.9,
-                        maxChildSize: 1,
-                        minChildSize: 0.32,
-                        expand: false,
-                        builder: (context, scrollController) {
-                          return SingleChildScrollView(
-                              controller: scrollController,
-                              child: Container(
-                                child: Expanded(
-                                    child: new Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Stack(
-                                      children: [
-                                        Container(
-                                          child: Image.asset(
-                                            'images/imAvc1.jpg',
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    new Container(
-                                      margin: const EdgeInsets.only(top: 5.0),
-                                      child: new Text(
-                                        "Les différents types d'AVC ,Il existe deux types d'AVC : ischémiques (provoqués par l'obstruction d'un vaisseau sanguin par un caillot) ou hémorragiques (provoqués par une hémorragie)AVC ischémique. AVC hémorragique, Il est ici question de la rupture d'un vaisseau, entraînant une  hémorragie. Le sang se répand et endommage le tissu cérébral alentour. La localisation et la grosseur de l'hématome déterminent sa gravité. On parle dans ce cas d'AVC hémorragique, d'hémorragie cérébrale ou d'hématome cérébral.•On estime que 20% des AVC sont de nature hémorragique. Les conséquences des AVC dépendent de nombreux facteurs : la vitesse de rétablissement de la circulation sanguine, la durée de la privation en oxygène et la localisation cérébrale de l'accident.",
-                                        style: new TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 20.0),
-                                        textAlign: TextAlign.justify,
-                                      ),
-                                    ),
-                                  ],
-                                )),
-                              ));
-                        }),
+                onTap: (() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyMaladie(),
+                    ),
                   );
-                },
+                }),
+                // onTap: () {
+                //   showModalBottomSheet(
+                //     context: context,
+                //     isScrollControlled: true,
+                //     // shape: const RoundedRectangleBorder(
+                //     //     borderRadius: BorderRadius.vertical(
+                //     //   top: Radius.circular(30),
+                //     // )),
+                //     builder: (context) => DraggableScrollableSheet(
+                //         initialChildSize: 0.9,
+                //         maxChildSize: 1,
+                //         minChildSize: 0.32,
+                //         expand: false,
+                //         builder: (context, scrollController) {
+                //           return SingleChildScrollView(
+                //               controller: scrollController,
+                //               child: Container(
+                //                 child: Expanded(
+                //                     child: new Column(
+                //                   crossAxisAlignment: CrossAxisAlignment.start,
+                //                   children: <Widget>[
+                //                     Stack(
+                //                       children: [
+                //                         Container(
+                //                           child: Image.asset(
+                //                             'images/imAvc1.jpg',
+                //                             fit: BoxFit.cover,
+                //                           ),
+                //                         ),
+                //                       ],
+                //                     ),
+                //                     SizedBox(
+                //                       height: 15,
+                //                     ),
+                //                     new Container(
+                //                       margin: const EdgeInsets.only(top: 5.0),
+                //                       child: new Text(
+                //                         "Les différents types d'AVC ,Il existe deux types d'AVC : ischémiques (provoqués par l'obstruction d'un vaisseau sanguin par un caillot) ou hémorragiques (provoqués par une hémorragie)AVC ischémique. AVC hémorragique, Il est ici question de la rupture d'un vaisseau, entraînant une  hémorragie. Le sang se répand et endommage le tissu cérébral alentour. La localisation et la grosseur de l'hématome déterminent sa gravité. On parle dans ce cas d'AVC hémorragique, d'hémorragie cérébrale ou d'hématome cérébral.•On estime que 20% des AVC sont de nature hémorragique. Les conséquences des AVC dépendent de nombreux facteurs : la vitesse de rétablissement de la circulation sanguine, la durée de la privation en oxygène et la localisation cérébrale de l'accident.",
+                //                         style: new TextStyle(
+                //                             color: Colors.black,
+                //                             fontSize: 20.0),
+                //                         textAlign: TextAlign.justify,
+                //                       ),
+                //                     ),
+                //                   ],
+                //                 )),
+                //               ));
+                //         }),
+                //   );
+                // },
                 child: Center(
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -122,8 +129,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 )),
               ),
             ),
+            //Fin qu'est ce que l'AVC
 
-            //Bloc symptômes
+            //Début Bloc symptômes
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -131,61 +139,14 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.green,
               margin: EdgeInsets.all(8.0),
               child: InkWell(
-                onTap: () {
-                  showModalBottomSheet(
-                    context: context,
-                    isScrollControlled: true,
-                    // shape: const RoundedRectangleBorder(
-                    //     borderRadius: BorderRadius.vertical(
-                    //   top: Radius.circular(30),
-                    // )),
-                    builder: (context) => DraggableScrollableSheet(
-                        initialChildSize: 0.9,
-                        maxChildSize: 0.9,
-                        minChildSize: 0.32,
-                        expand: false,
-                        builder: (context, scrollController) {
-                          return SingleChildScrollView(
-                              controller: scrollController,
-                              child: Container(
-                                child: Expanded(
-                                    child: new Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Stack(
-                                      children: [
-                                        Container(
-                                          child: Image.asset(
-                                            'images/imSym1.jpg',
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    new Container(
-                                      margin: const EdgeInsets.only(top: 5.0),
-                                      child: new Text(
-                                         '''Les signes d’alerte, Visage paralysé Inertie d’un membre (bras , jambes ou la moitié d’un corps )Trouble de la parole En urgence, appeler le numéro urgence disponible sur l’application pour être pris en charge.Les mesures de prévention00
-                                          Consulter un médecin une à deux fois par an( dépistage des facteurs de risques et les traiter ) 
-                                          Baisser la TA (objectif <135/85 mmHg )
-                                          Contrôler la glycémie (objectif < 1.1 g/L) et le cholestérol surtout le LDL 
-                                          Arrêter strictement du tabac 
-                                          Pratiquer une activité physique régulière et quotidienne sinon au moins 30 min de marche trois fois par semaine ''',
-                                        style: new TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 20.0),
-                                        textAlign: TextAlign.justify,
-                                      ),
-                                    ),
-                                  ],
-                                )),
-                              ));
-                        }),
+                onTap: (() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MySymptomes(),
+                    ),
                   );
-                },
+                }),
                 child: Center(
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -206,62 +167,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
             // MESURES DE PREVENTIONS AVC
             Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
               color: Colors.green,
               margin: EdgeInsets.all(8.0),
               child: InkWell(
-                onTap: () {
-                  showModalBottomSheet(
-                    context: context,
-                    isScrollControlled: true,
-                    // shape: const RoundedRectangleBorder(
-                    //     borderRadius: BorderRadius.vertical(
-                    //   top: Radius.circular(30),
-                    // )),
-                    builder: (context) => DraggableScrollableSheet(
-                        initialChildSize: 0.9,
-                        maxChildSize: 0.9,
-                        minChildSize: 0.32,
-                        expand: false,
-                        builder: (context, scrollController) {
-                          return SingleChildScrollView(
-                              controller: scrollController,
-                              child: Container(
-                                child: Expanded(
-                                    child: new Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Stack(
-                                      children: [
-                                        Container(
-                                          child: Image.asset(
-                                            'images/imSym1.jpg',
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    new Container(
-                                      margin: const EdgeInsets.only(top: 5.0),
-                                      child: new Text(
-                                        "Elle repose sur la prise en charge des facteurs de risque d'AVC.• HTA : principal facteur de risque des AVC, ischémiques ou hémorragiques :augmentation du risque relatif (RR) de 4 environ ; plus de la moitié des AVC surviennent dans un contexte d'HTA chronique.Hypercholestérolémie : RR = 1,5. Ce facteur de risque majeur de l'infarctus du myocarde est un facteur de risque plus accessoire des infarctus cérébraux. ",
-                                        style: new TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 20.0),
-                                        textAlign: TextAlign.justify,
-                                      ),
-                                    ),
-                                  ],
-                                )),
-                              ));
-                        }),
+                onTap: (() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyMesuresPreventives(),
+                    ),
                   );
-                },
+                }),
                 child: Center(
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -331,7 +247,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     //   top: Radius.circular(30),
                     // )),
                     builder: (context) => DraggableScrollableSheet(
-                      
                         initialChildSize: 0.9,
                         maxChildSize: 0.9,
                         minChildSize: 0.32,
@@ -365,9 +280,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             Protocole insuline 
                                             Traiter la TA par le nicardipine 1mg/ml (50 ml vitesse 0,5 mh/h )obj < 135/85 mmHg
                                             Position inclinée au 30° au premier jour ,puis assise au 2ème jour ,  puis fauteuil et lever autoriser au 3ème jour à l’absence de sténose intra ou extra crânienne aux examens radiologiques des troncs supra aortiques ;
-                                            Surveillances TA, FC, Glycémie , Saturation en oxygène, globe vesical , ETAT DE CONSCIENCE , NIHSS ( clinique )   ''' 
-
-,
+                                            Surveillances TA, FC, Glycémie , Saturation en oxygène, globe vesical , ETAT DE CONSCIENCE , NIHSS ( clinique )   ''',
                                         style: new TextStyle(
                                             color: Colors.black,
                                             fontSize: 20.0),

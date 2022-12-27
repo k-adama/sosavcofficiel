@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                   },
                   icon: Icon(Icons.start),
-                  label: Text("DEMARRER")),
+                  label: Text("DEM")),
             ),
             SizedBox(
               height: 20.0,
@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     }
                   },
                   icon: Icon(Icons.phone),
-                  label: Text("APPEL D'URGENCE")),
+                  label: Text("APPEL D'URG")),
             )
           ],
         ),

@@ -42,28 +42,27 @@ class MyHomePageAccueil extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePageAccueil> {
-
 //Début Variables
   var idMalade;
   //Fin variables
 
- //Debut function
-  Future<void>  requiredId() async {
-      final prefs =  await SharedPreferences.getInstance(); //sharedpreference instence
-      
+  //Debut function
+  Future<void> requiredId() async {
+    final prefs =
+        await SharedPreferences.getInstance(); //sharedpreference instence
+
     //get code MALADE
     setState(() {
       idMalade = prefs.getString('idMalade');
     });
     //Fin function
   }
-  
+
   @override
   void initState() {
     requiredId();
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -79,21 +78,18 @@ class _MyHomePageState extends State<MyHomePageAccueil> {
                 icon: Icon(Icons.note_add_sharp,
                     color: Color.fromARGB(255, 6, 74, 176), size: 34.0),
                 onPressed: () {
-                  idMalade == null ? 
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MyHomePageLogin(
-                              title: '',
-                            )),                      
-                    )
-                    
-                    :
-                    Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MySignal()),
-                    );
-                
+                  idMalade == null
+                      ? Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyHomePageLogin(
+                                    title: '',
+                                  )),
+                        )
+                      : Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MySignal()),
+                        );
                 }),
           ],
           //Création du menu dans le appbar

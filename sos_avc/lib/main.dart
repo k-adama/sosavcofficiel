@@ -42,9 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
   //Fin variables
 
   //Debut function
-  Future<void>  requiredId() async {
-      final prefs =  await SharedPreferences.getInstance(); //sharedpreference instence
-      
+  Future<void> requiredId() async {
+    final prefs =
+        await SharedPreferences.getInstance(); //sharedpreference instence
+
     //get code MALADE
     setState(() {
       idMalade = prefs.getString('idMalade');
@@ -52,13 +53,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
   //Fin function
-  
+
   @override
   void initState() {
     requiredId();
     super.initState();
   }
-   
 
   @override
   Widget build(BuildContext context) {
@@ -92,23 +92,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     minimumSize: Size(300, 60),
                   ),
                   onPressed: () {
-                    
-                    idMalade == null ? 
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MyOption(),
-                      ),
-                    )
-                    :
-                    
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MyAccueil(),
-                      ),
-                    );
-
+                    idMalade == null
+                        ? Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MyOption(),
+                            ),
+                          )
+                        : Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MyAccueil(),
+                            ),
+                          );
                   },
                   icon: Icon(Icons.start),
                   label: Text("DEMARRER")),
@@ -120,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               child: ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.limeAccent[700],
+                    backgroundColor: Color.fromRGBO(174, 234, 0, 1),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(32.0)),
                     minimumSize: Size(300, 60),

@@ -59,6 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
           //Création du menu dans le appbar
           bottom: TabBar(
             isScrollable: true,
+            labelColor: Color.fromRGBO(1, 1, 1, 1),
+            unselectedLabelColor: Color.fromARGB(1, 1, 1, 1).withOpacity(0.3),
+            indicatorColor: Colors.blue,
             tabs: const <Widget>[
               Tab(
                 text: 'ACTUALITES',
