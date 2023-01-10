@@ -1,0 +1,1209 @@
+{
+    "hopitaux": [
+        {
+            "Ville_et_commune": "Yopougon",
+            "@geometry": "center",
+            "_geopoint": "5.3391046,-4.09819",            
+            "Catégorie": "Hôpital",
+            "_i": 1,
+            "_id": "pNbjtnc5aUnmRnpATgV2T"
+          },
+        {
+            "Ville_et_commune": "Oumé",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "6.3787759,-5.41866",
+            "_i": 12,
+            "_id": "uwrzYNI5Cu2ecBOmHejWc"
+          },
+        {
+            "Ville_et_commune": "Oumé",
+            "@geometry": "center",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "6.3826969,-5.4151507",
+            "_i": 13,
+            "_id": "T_ORRheIAjpmmiEsBwmcn"
+          },
+        {
+            "Ville_et_commune": "Man",
+            "@geometry": "center",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "7.4074644,-7.5517931",
+            "_i": 14,
+            "_id": "q5NcRl8gPGIBowGipv3gj"
+          },
+        {
+            "Ville_et_commune": "Man",
+            "@geometry": "center",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "7.4093685,-7.5495699",
+            "_i": 15,
+            "_id": "5fRDvt06BgC68PbUff1pD"
+          },
+        {
+            "Ville_et_commune": "Man",
+            "@geometry": "center",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "7.4116637,-7.5484649",
+            "_i": 16,
+            "_id": "owGZDVUAF3wUG0tNsiAIz"
+          },
+        {
+            "Ville_et_commune": "Cocody",
+            "@geometry": "center",
+            "_geopoint": "5.3368409,-4.0133515",
+            
+            "Catégorie": "Hôpital",
+            "_i": 19,
+            "_id": "AJ07Cm8L8E_kTGLxahq8Z"
+          },
+        {
+            "Ville_et_commune": "Cocody",
+            "@geometry": "center",
+            "_geopoint": "5.3423413,-3.9938504",
+            
+            "Catégorie": "Hôpital",
+            "_i": 20,
+            "_id": "KXnbQwaX1zxe9zSeZIql-"
+          },
+        {
+            "Ville_et_commune": "Yopougon",
+            "@geometry": "center",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "5.3258806,-4.1072196",
+            "_i": 36,
+            "_id": "t4hshsZGvNIe9GkLob9jV"
+          },
+        {
+            "Ville_et_commune": "Tafiré",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "9.0701895,-5.1557986",
+            "_i": 37,
+            "_id": "gS51cG_sO0zUlADMJkW6-"
+          },
+        {
+            "Ville_et_commune": "Oumé",
+            "@geometry": "center",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "6.3791133,-5.4149057",
+            "_i": 39,
+            "_id": "hTTFSfO3I2Z3QsmK5e7ee"
+          },
+        {
+            "Ville_et_commune": "Plateau",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "5.3238016,-4.0161363",
+            "_i": 58,
+            "_id": "RRqoTVWAkNT1uJTOQSIhm"
+          },
+        {
+            "Ville_et_commune": "Marcory",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "5.310661,-3.986472",
+            "_i": 61,
+            "_id": "L5IROHIfmwAQMr_FmZksI"
+          },
+        {
+            "Ville_et_commune": "Gagnoa",
+            "@geometry": "center",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "6.126568,-5.9495901",
+            "_i": 72,
+            "_id": "sSef-pdDsbba6l_Waqzka"
+          },
+        {
+            "Ville_et_commune": "Anyama",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "5.5009784,-4.0458498",
+            "_i": 98,
+            "_id": "dX5r5emw6wXaHcW5xWMP0"
+          },
+        {
+            "Ville_et_commune": "Anyama",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "5.4998405,-4.0484132",
+            "_i": 99,
+            "_id": "z-Tub8wKIRzh3Ejp3cHHx"
+          },
+        {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3245002,-4.0807644",
+            "_i": 104,
+            "_id": "QCtXo1Zir6Le9XS_V39wx"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3397977,-4.0736017",
+            "_i": 105,
+            "_id": "sdLWobF2eaBn3N-cYTQCw"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3468317,-4.0731625",
+            "_i": 106,
+            "_id": "wkaaUNUsUMpsZCoyHOa5J"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "5.3414366,-4.0800482",
+            "_i": 117,
+            "_id": "sFk_B97_u-0g8i6qeAGU_"
+          },
+        {
+            "Ville_et_commune": "Adiaké",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "5.2852072,-3.2988058",
+            "_i": 122,
+            "_id": "RPA2p79jxTc_bDzxTeBCA"
+          },
+        {
+            "Ville_et_commune": "Le Plateau",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "5.3383835,-4.019068",
+            "_i": 123,
+            "_id": "VvzeRA1SRhWu7aoFckRfZ"
+          },
+        {
+            "Ville_et_commune": "Duékoué",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "6.7430868,-7.3433898",
+            "_i": 136,
+            "_id": "w-vQJ93tI6qDBL9PwrilK"
+          },
+        {
+            "Ville_et_commune": "Duékoué",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "6.7521113,-7.3367433",
+            "_i": 138,
+            "_id": "A8uJUrQlvUC6DaLShBDik"
+          },
+        {
+            "Ville_et_commune": "Aboisso",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "5.4747187,-3.2065373",
+            "_i": 142,
+            "_id": "6xzMEABJiuNsKE5nvs0cD"
+          },
+        {
+            "Ville_et_commune": "Yamoussoukro",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "6.826797,-5.2737974",
+            "_i": 228,
+            "_id": "D_ocmfySDroicP2OwTrVh"
+          },
+        {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3777505,-3.9977536",
+            "_i": 230,
+            "_id": "Z_Nf8UZpDjnEBQTfPp5ig"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "yamoussoukro",
+            "@geometry": "center",
+            
+            "Catégorie": "Hôpital",
+            "_geopoint": "6.8009538,-5.27301",
+            "_i": 233,
+            "_id": "xJH-Bs31yoheAo8_DbpjT"
+          },
+        {
+            "Ville_et_commune": "Marcory",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.299279,-3.9848761",
+            "_i": 242,
+            "_id": "t_zG18v-3cYzCKxUn2fqX"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Abidjan",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3072654,-3.994634",
+            "_i": 243,
+            "_id": "Y-cptxNg-uak4x58ThR7J"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Marcory",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3068044,-3.985621",
+            "_i": 244,
+            "_id": "YjEjCKMUClvTmGgjcmyKl"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Plateau",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3221398,-4.0188051",
+            "_i": 246,
+            "_id": "ScPJ_XTcTxVwHckACFsJx"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Attécoubé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3475083,-4.0370177",
+            "_i": 255,
+            "_id": "9uWNs_EpsMkpg9DM3j_WN"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Attécoubé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3453334,-4.0345663",
+            "_i": 257,
+            "_id": "VF9F6r0b8N699Rs9ji0g_"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Attécoubé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3432042,-4.0337071",
+            "_i": 258,
+            "_id": "3yBzhO1zGWm5tkbaZ2Ttu"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Attécoubé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3508986,-4.0317393",
+            "_i": 259,
+            "_id": "6j65nQKdyzFoaD5FMjXIb"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Treichville",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2926887,-3.9977545",
+            "_i": 262,
+            "_id": "CaUj3l17sORinvVoieXsk"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Adjamé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3486342,-4.0168001",
+            "_i": 263,
+            "_id": "l5njd_SrdfzaBjtuRKiJk"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Grand Bassam",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2112879,-3.737831",
+            "_i": 266,
+            "_id": "cweszI-5k5co2m2n_N0Od"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3457189,-4.0531533",
+            "_i": 267,
+            "_id": "LYGLiu7ovRg5bbwxRqu0x"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3406652,-4.067955",
+            "_i": 268,
+            "_id": "gGi8TaXKcGbslycz5N3Mo"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3468205,-4.0635961",
+            "_i": 269,
+            "_id": "-WKUN8QqCGppOMPynz7-S"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3406874,-4.0724302",
+            "_i": 270,
+            "_id": "nNoLEcp6l_gpHshfXBdk3"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.341204,-4.0659433",
+            "_i": 271,
+            "_id": "vAscgv83vSAhwHm3-dESh"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3405566,-4.0587784",
+            "_i": 272,
+            "_id": "1V22Jw2gWB4zA_V4V-fyV"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3436131,-4.0727649",
+            "_i": 280,
+            "_id": "JeKtNcbI-HXDkq1CK2JZ9"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Marcory",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "5.3114387,-3.9734755",
+            "_i": 283,
+            "_id": "WCo0zSqpSYnMYiwbwjsou"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Marcory",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3026733,-3.9797412",
+            "_i": 284,
+            "_id": "jfgFDt1LWTtpZJ1kKSwpE"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3364327,-4.0548596",
+            "_i": 286,
+            "_id": "4VPNuIajaRpt_UhJMPZJJ"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3500715,-4.0735112",
+            "_i": 287,
+            "_id": "-klWq6-6Pmg9FjSMhLAW0"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Marcory",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2979063,-3.9712851",
+            "_i": 295,
+            "_id": "qAkpORzxhT8thWbe1iNU8"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Abidjan",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3034734,-3.9622715",
+            "_i": 296,
+            "_id": "32ZBDUSKjHlFhhLDXEN_c"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3316324,-4.0555269",
+            "_i": 297,
+            "_id": "oxz7zV91VAGQnNhmhTZUl"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Sinfra",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "6.6227975,-5.913364",
+            "_i": 301,
+            "_id": "mcCqDG-hDngl2L6tlTzOp"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3372554,-4.0035477",
+            "_i": 307,
+            "_id": "ft-M8pFTGDfg779zThwqX"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3617174,-3.997705",
+            "_i": 308,
+            "_id": "pZOWR_QDTqF2KLVgiRvG5"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3656722,-3.9972212",
+            "_i": 309,
+            "_id": "Z3tOIwoRiX45VkQ5R9YRP"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Bouaké",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "7.6813055,-5.0300772",
+            "_i": 312,
+            "_id": "2_alciprK4kUYoyDwqTJy"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Adjamé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.340781,-4.0263818",
+            "_i": 313,
+            "_id": "-FcLXp4uNxM9kxdLzmuAm"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3634869,-3.9594942",
+            "_i": 314,
+            "_id": "H5OxrVs1lBL7m2tkX6gAm"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3354868,-4.0019693",
+            "_i": 322,
+            "_id": "1oT78TBcrPedK84-2u4YT"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3423827,-4.0747959",
+            "_i": 323,
+            "_id": "HfepsmCYVgxMIGMbIZwjT"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3693487,-3.9978189",
+            "_i": 325,
+            "_id": "2IgLESC1qHC7VQdau3uO_"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3878642,-3.9924989",
+            "_i": 326,
+            "_id": "smuyrSBe3mi9EFz6Z4egY"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3400239,-4.1005786",
+            "_i": 332,
+            "_id": "x058PDGhSZVUEtKkgk3c0"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Treichville",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "5.3055632,-4.0116529",
+            "_i": 338,
+            "_id": "UErXyJII-3gae1czuuR6x"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Treichville",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3045163,-4.0091424",
+            "_i": 340,
+            "_id": "gPA4EVeyTx3s9Ru-SV8OY"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Treichville",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.305654,-4.005677",
+            "_i": 344,
+            "_id": "RVE5Td4LotycFon4gqK4s"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Treichville",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3038611,-4.0040667",
+            "_i": 345,
+            "_id": "A5FEkMOSjI8Ul_eohfTcL"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Treichville",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3059906,-4.0120687",
+            "_i": 347,
+            "_id": "Ve9GPvqJCS5W6CHqtuVXz"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Adjamé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3444314,-4.026204",
+            "_i": 348,
+            "_id": "xyYXnQxmS2VHnBY5lc7lc"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Adjamé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.345772,-4.026625",
+            "_i": 349,
+            "_id": "mOfrH7rlwtJ0J6QMwTg2t"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Adjamé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3490948,-4.0227042",
+            "_i": 351,
+            "_id": "9QltE4Z4HBn4xORHsLE4O"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Adjamé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3466992,-4.0250954",
+            "_i": 352,
+            "_id": "r-2O3k0BuEfNO2Bxzpr_-"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Marcory",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2870905,-3.9824791",
+            "_i": 355,
+            "_id": "-FASTwRn-kvCbKwfUJW-g"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Grand Bassam",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2081565,-3.7345512",
+            "_i": 357,
+            "_id": "T50331x4V2vd45YvjPwHV"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Grand Bassam",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2085565,-3.7346051",
+            "_i": 358,
+            "_id": "FwrxfyPRMQKSBEy1_VeTS"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Koumassi",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2999326,-3.9684052",
+            "_i": 359,
+            "_id": "sNzoBqURGywhPs540v-Sb"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3315946,-4.0770513",
+            "_i": 360,
+            "_id": "1fzflMLDb8ftp2NrXk6er"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3773579,-3.9927496",
+            "_i": 375,
+            "_id": "VUrwqo8MR9q99-gvWiO43"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3741301,-3.9906204",
+            "_i": 378,
+            "_id": "j8lPyd_8jXervVBytChEx"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3841623,-3.9878665",
+            "_i": 379,
+            "_id": "fFmXKWnaHD8HUjF6S8IOm"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Marcory",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2939651,-3.9784192",
+            "_i": 390,
+            "_id": "MbcCFS2x2aYOFL2QaadP5"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3156811,-4.091831",
+            "_i": 410,
+            "_id": "DAWizNOUvwbbB_YwBCfzH"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3221012,-4.1034326",
+            "_i": 411,
+            "_id": "3bB-5prWyUkEijOERBlqU"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Yopougon",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3425079,-4.0802419",
+            "_i": 412,
+            "_id": "9CeQqWyy-HmtvoCZeYEVa"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Adjamé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.371906,-4.0122651",
+            "_i": 413,
+            "_id": "ONEtrdmW4_NLVIAIOhtbv"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3478871,-3.9756833",
+            "_i": 420,
+            "_id": "iquBWxNkP2DnAc_JcEXrh"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Plateau",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.319949,-4.0167065",
+            "_i": 436,
+            "_id": "6ZxSC-Onalo-6BNLHWc0G"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Clinique vétérinaire",
+            "_geopoint": "5.3443531,-4.0112683",
+            "_i": 437,
+            "_id": "zEKcDzMfYySwKvpxopOHF"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Grand Bassam",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2158367,-3.7405218",
+            "_i": 444,
+            "_id": "VFy18pcAqdwMx3YcLCE2E"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Grand Bassam",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2056478,-3.7356447",
+            "_i": 445,
+            "_id": "JryaCGVI1_KqotUDIsDY1"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Grand Bassam",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2112228,-3.7544523",
+            "_i": 447,
+            "_id": "r0HUFcMYPYfoAtiUv23dQ"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Marcory",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3114348,-3.9735443",
+            "_i": 455,
+            "_id": "2o2v6z-AvILW7jt2Q87_L"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Grand Bassam",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2217178,-3.7261136",
+            "_i": 456,
+            "_id": "w4yK5ZmUrIrINir2qkG_z"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Koumassi",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3072032,-3.940928",
+            "_i": 457,
+            "_id": "d2n9eigpolkPdWRQPOlYU"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Grand Bassam",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2080895,-3.7388887",
+            "_i": 475,
+            "_id": "aOmSh5cTEqQpa2LRpFlDd"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "5.3832122,-3.9859791",
+            "_i": 476,
+            "_id": "lcTL3Yz3rqkrLYwg5L-yc"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Tafiré",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "9.0694061,-5.163443",
+            "_i": 484,
+            "_id": "L_gpwl2aPkiD3SHqAOWv0"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Koumassi",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2884308,-3.9716152",
+            "_i": 503,
+            "_id": "d3X_3MrZ_Hmz42mSIIJHe"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Koumassi",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2914254,-3.9660246",
+            "_i": 504,
+            "_id": "upFWT_5poqWqzmBgAhjf0"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Adjamé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3464688,-4.0226268",
+            "_i": 555,
+            "_id": "2NQ2c3NLtXcP5u6Zder4z"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Duékoué",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "6.7381321,-7.3439164",
+            "_i": 597,
+            "_id": "opbiMYOf_FUUbR5mkK3If"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Duékoué",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "6.7394845,-7.3452342",
+            "_i": 598,
+            "_id": "8YK2AnB6IyTgaw_INC1E5"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Duékoué",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "6.7463897,-7.3463327",
+            "_i": 599,
+            "_id": "AXttLsWDs4QDgepyJx5re"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Duékoué",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "6.7469046,-7.3484705",
+            "_i": 600,
+            "_id": "Cz69p7oX6_ChrdwoYI3y2"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Duékoué",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "6.7377186,-7.3510028",
+            "_i": 603,
+            "_id": "CJR06t5kcHwRYWFoupiJ8"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Duékoué",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "6.7391915,-7.3541786",
+            "_i": 604,
+            "_id": "wTltOIAcVO4aA9HVSWASh"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Duékoué",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "6.7367969,-7.3433767",
+            "_i": 605,
+            "_id": "dmj35ofT1uB3hu9vucV7Q"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Duékoué",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "6.7454871,-7.3450812",
+            "_i": 606,
+            "_id": "-kWi7tkpzA9Ldxpf1UDvs"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Duékoué",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "6.7461243,-7.3443925",
+            "_i": 607,
+            "_id": "8lMt-V_DpCTGI6TJQKOCo"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Duékoué",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "6.7391807,-7.3426426",
+            "_i": 608,
+            "_id": "528dbCYnl5uzfC79e9CVp"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Marcory",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.302539,-3.9852955",
+            "_i": 621,
+            "_id": "p6cOGDlwoT1jyDxRZRo6_"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "5.358161,-3.999915",
+            "_i": 628,
+            "_id": "sQ6AjiEWo8jZuK8BlnH_-"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Gagnoa",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "6.1408309,-5.9468009",
+            "_i": 634,
+            "_id": "3RWuXtY-gk6mTcxwxfYKH"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Attécoubé",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3491947,-4.0344216",
+            "_i": 649,
+            "_id": "g2QHragPEOUexFO3gR4g6"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3531145,-3.9767253",
+            "_i": 652,
+            "_id": "YfRuhYatE4G621p_kkljO"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Grand Bassam",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2153612,-3.7780427",
+            "_i": 673,
+            "_id": "RWykO-ekOYIyGkWyinqsd"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Grand Bassam",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.2150589,-3.7645118",
+            "_i": 675,
+            "_id": "VZkGh81bkDYPImZ5xCZyS"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Grand Bassam",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.1972074,-3.7373042",
+            "_i": 676,
+            "_id": "gUh3r0ye5OMc2Q_V99Rw_"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Abidjan-Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.3282274,-3.954167",
+            "_i": 683,
+            "_id": "WQ9LLWFcoye0xkHwI-WGa"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "Abidjan -Cocody",
+            
+            "Catégorie": "Pharmacie",
+            "_geopoint": "5.328261,-3.9429339",
+            "_i": 684,
+            "_id": "Et06ANyNo9iBQckvtuh9E"
+          }
+        
+        
+  ,      {
+            "Ville_et_commune": "akpessekro",
+            
+            "Catégorie": "Clinique médicale",
+            "_geopoint": "6.732303,-5.3052598",
+            "_i": 1086,
+            "_id": "3aPZjg1XyHQ-HJq2qqlMJ"
+          }
+        
+        
+    ]
+}

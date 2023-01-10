@@ -50,6 +50,7 @@ dependencies:
   uuid: ^3.0.6
   focus_detector: ^2.0.1
   webview_flutter: ^3.0.4
+  sqflite: ^2.2.2
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,8 @@ flutter:
     - images/imageFond.jpg
     - images/imAvc1.jpg
     - images/imSym1.jpg
+    - assets/hospitaux-de-cote-d'ivoire.geojson 
+    - assets/hopitaux.json
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
