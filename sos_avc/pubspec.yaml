@@ -51,6 +51,7 @@ dependencies:
   focus_detector: ^2.0.1
   webview_flutter: ^3.0.4
   sqflite: ^2.2.2
+  velocity_x: ^4.1.0
 
 dev_dependencies:
   flutter_test:
